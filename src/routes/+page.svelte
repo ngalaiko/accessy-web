@@ -154,7 +154,12 @@
 	{/if}
 
 	{#if step === 'phone'}
-		<form onsubmit={(e) => { e.preventDefault(); handleRequestCode(); }}>
+		<form
+			onsubmit={(e) => {
+				e.preventDefault();
+				handleRequestCode();
+			}}
+		>
 			<label>
 				Phone Number
 				<input type="tel" bind:value={phoneNumber} required disabled={loading} />
@@ -162,7 +167,12 @@
 			<button type="submit" disabled={loading}>Request Code</button>
 		</form>
 	{:else if step === 'code'}
-		<form onsubmit={(e) => { e.preventDefault(); handleSubmitCode(); }}>
+		<form
+			onsubmit={(e) => {
+				e.preventDefault();
+				handleSubmitCode();
+			}}
+		>
 			<label>
 				Verification Code
 				<input
@@ -177,7 +187,12 @@
 			<button type="submit" disabled={loading}>Submit Code</button>
 		</form>
 	{:else if step === 'recovery'}
-		<form onsubmit={(e) => { e.preventDefault(); handleValidateRecovery(); }}>
+		<form
+			onsubmit={(e) => {
+				e.preventDefault();
+				handleValidateRecovery();
+			}}
+		>
 			<label>
 				Recovery Key
 				<input type="text" bind:value={recoveryKey} required disabled={loading} />

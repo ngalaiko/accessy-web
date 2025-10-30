@@ -35,15 +35,19 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
 		maxAge: 60 * 60 * 24 * 30
 	});
 
-	cookies.set('session_data', JSON.stringify({
-		phone_number: data.phone_number
-	}), {
-		path: '/',
-		httpOnly: false,
-		secure: true,
-		sameSite: 'strict',
-		maxAge: 60 * 60 * 24 * 30
-	});
+	cookies.set(
+		'session_data',
+		JSON.stringify({
+			phone_number: data.phone_number
+		}),
+		{
+			path: '/',
+			httpOnly: false,
+			secure: true,
+			sameSite: 'strict',
+			maxAge: 60 * 60 * 24 * 30
+		}
+	);
 
 	return json({ success: true });
 };

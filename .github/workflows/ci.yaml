@@ -6,9 +6,9 @@ jobs:
   lint:
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v4
-    - uses: jdx/mise-action@v3
-    - run: mise run lint
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v3
+      - run: mise run lint
 
   format:
     runs-on: ubuntu-24.04
