@@ -1,31 +1,23 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { session } from '$lib/stores/session';
 	import { decodeJWTPayload } from '$lib/crypto/jwt';
 	import * as api from '$lib/api-client';
 
-	let step: 'phone' | 'code' | 'recovery' | 'enrolling' | 'done' = 'phone';
-	let phoneNumber = '';
-	let verificationCode = '';
-	let recoveryKey = '';
-	let deviceName = 'Web Browser';
-	let verificationCodeId = '';
-	let enrollToken = '';
-	let userId = '';
-	let deviceId = '';
-	let recoveryKeyRequired = false;
-	let status = '';
-	let error = '';
-	let loading = false;
-
-	onMount(() => {
-		session.load();
-		if ($session?.auth_token) {
-			goto(resolve('/doors'));
-		}
-	});
+	let step = $state<'phone' | 'code' | 'recovery' | 'enrolling' | 'done'>('phone');
+	let phoneNumber = $state('');
+	let verificationCode = $state('');
+	let recoveryKey = $state('');
+	let deviceName = $state('Web Browser');
+	let verificationCodeId = $state('');
+	let enrollToken = $state('');
+	let userId = $state('');
+	let deviceId = $state('');
+	let recoveryKeyRequired = $state(false);
+	let status = $state('');
+	let error = $state('');
+	let loading = $state(false);
 
 	async function handleRequestCode() {
 		if (!phoneNumber) {
@@ -110,7 +102,7 @@
 		error = '';
 
 		try {
-			const { certificates, privateKeys, certBase64 } = await api.enrollDevice(
+			const { privateKeys, certBase64 } = await api.enrollDevice(
 				deviceName,
 				recoveryKey || null,
 				enrollToken,
@@ -126,15 +118,12 @@
 			const jwtPayload = decodeJWTPayload(loginResponse.auth_token);
 			const finalCertBase64 = jwtPayload.publicKeyForLogin || certBase64 || '';
 
-			// Save session
 			const sessionData = await api.saveSession(
 				loginResponse.auth_token,
 				deviceId,
 				userId,
 				finalCertBase64,
-				certificates,
 				phoneNumber,
-				recoveryKey || null,
 				privateKeys
 			);
 
@@ -153,7 +142,7 @@
 	}
 </script>
 
-<main>
+<div class="login-page">
 	<h1>Accessy Door Control</h1>
 
 	{#if status}
@@ -165,7 +154,7 @@
 	{/if}
 
 	{#if step === 'phone'}
-		<form on:submit|preventDefault={handleRequestCode}>
+		<form onsubmit={(e) => { e.preventDefault(); handleRequestCode(); }}>
 			<label>
 				Phone Number
 				<input type="tel" bind:value={phoneNumber} required disabled={loading} />
@@ -173,7 +162,7 @@
 			<button type="submit" disabled={loading}>Request Code</button>
 		</form>
 	{:else if step === 'code'}
-		<form on:submit|preventDefault={handleSubmitCode}>
+		<form onsubmit={(e) => { e.preventDefault(); handleSubmitCode(); }}>
 			<label>
 				Verification Code
 				<input
@@ -188,7 +177,7 @@
 			<button type="submit" disabled={loading}>Submit Code</button>
 		</form>
 	{:else if step === 'recovery'}
-		<form on:submit|preventDefault={handleValidateRecovery}>
+		<form onsubmit={(e) => { e.preventDefault(); handleValidateRecovery(); }}>
 			<label>
 				Recovery Key
 				<input type="text" bind:value={recoveryKey} required disabled={loading} />
@@ -200,13 +189,16 @@
 	{:else if step === 'done'}
 		<p>Redirecting to doors...</p>
 	{/if}
-</main>
+</div>
 
 <style>
-	main {
+	.login-page {
+		display: flex;
+		flex-direction: column;
 		max-width: 400px;
-		margin: 2rem auto;
-		padding: 1rem;
+		width: 100%;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
 	h1 {
@@ -218,6 +210,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		width: 100%;
 	}
 
 	label {
@@ -230,6 +223,8 @@
 		padding: 0.5rem;
 		border: 1px solid #ccc;
 		border-radius: 4px;
+		box-sizing: border-box;
+		width: 100%;
 	}
 
 	button {
@@ -254,5 +249,11 @@
 	.error {
 		color: #c00;
 		margin: 1rem 0;
+	}
+
+	@media (max-width: 480px) {
+		h1 {
+			font-size: 1.25rem;
+		}
 	}
 </style>

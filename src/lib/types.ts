@@ -6,12 +6,7 @@ export interface SessionData {
 	device_id: string;
 	user_id: string;
 	cert_base64: string;
-	certificates: {
-		login: string;
-		signing: string;
-	};
 	phone_number: string;
-	recovery_key?: string;
 	private_keys: {
 		login: string;
 		signing: string;

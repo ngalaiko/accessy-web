@@ -145,9 +145,7 @@ export async function saveSession(
 	deviceId: string,
 	userId: string,
 	certBase64: string | null,
-	certificates: EnrollResponse,
 	phoneNumber: string,
-	recoveryKey: string | null,
 	privateKeys: { login: CryptoKey; signing: CryptoKey }
 ): Promise<SessionData> {
 	const loginPEM = await exportPrivateKeyPEM(privateKeys.login);
@@ -158,12 +156,7 @@ export async function saveSession(
 		device_id: deviceId,
 		user_id: userId,
 		cert_base64: certBase64 || '',
-		certificates: {
-			login: certificates.certificateForLogin,
-			signing: certificates.certificateForSigning
-		},
 		phone_number: phoneNumber,
-		recovery_key: recoveryKey || undefined,
 		private_keys: {
 			login: loginPEM,
 			signing: signingPEM
