@@ -6,6 +6,7 @@ this is a simple web app with basic functionality built by reverse engineering t
 
 todo:
 
+- [ ] access token refresh
 - [ ] setup progressive web app
 - [ ] single-button ui to open closest door using geolocation api
 - [ ] ios app with widgets (?)
