@@ -1,0 +1,15 @@
+[tools]
+node = "22"
+pnpm = "latest"
+
+[tasks.start]
+description = "Start development server"
+run = "pnpm dev --host 0.0.0.0"
+
+[tasks.format]
+description = "Format code with Prettier"
+run = "pnpm format"
+
+[tasks.lint]
+description = "Lint and type check all code"
+run = "pnpm lint"
