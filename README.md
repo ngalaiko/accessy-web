@@ -4,7 +4,8 @@
 
 this is a simple web app with basic functionality built by reverse engineering their android app
 
-todo: 
+todo:
+
 - [ ] setup progressive web app
 - [ ] single-button ui to open closest door using geolocation api
 - [ ] ios app with widgets (?)
