@@ -13,3 +13,7 @@ run = "pnpm format"
 [tasks.lint]
 description = "Lint and type check all code"
 run = "pnpm lint"
+
+[tasks."no-diff"]
+description = "Check for uncommitted changes"
+run = "git diff --exit-code"
