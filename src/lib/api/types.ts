@@ -45,20 +45,20 @@ export interface LoginResponse {
 	auth_token: string;
 }
 
-export interface DoorsResponse {
-	mostInvokedPublicationsList: Array<{
+export interface Door {
+	publication_id: string;
+	name: string;
+	asset_id: string;
+	asset_name: string;
+	operations: Array<{
 		id: string;
 		name: string;
-		asset?: {
-			id: string;
-			name: string;
-			operations: Array<{
-				id: string;
-				name: string;
-			}>;
-		};
-		favorite: boolean;
 	}>;
+	favorite: boolean;
+}
+
+export interface DoorsResponse {
+	mostInvokedPublicationsList: Array<Door>;
 }
 
 export interface UnlockRequest {

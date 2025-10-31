@@ -2,7 +2,7 @@ import type { PageLoad } from './$types';
 import { get } from 'svelte/store';
 import { session } from '$lib/stores/session';
 import * as api from '$lib/api-client';
-import type { Door } from '$lib/types';
+import type { Door } from '$lib/api/types';
 
 export const ssr = false;
 

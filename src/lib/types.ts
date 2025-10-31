@@ -26,18 +26,3 @@ export interface JWTPayload {
 	publicKeyForLogin?: string;
 	[key: string]: unknown;
 }
-
-/**
- * Door with operations
- */
-export interface Door {
-	publication_id: string;
-	name: string;
-	asset_id: string;
-	asset_name: string;
-	operations: Array<{
-		id: string;
-		name: string;
-	}>;
-	favorite: boolean;
-}

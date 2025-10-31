@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { session } from '$lib/stores/session';
-	import type { Door } from '$lib/types';
 	import * as api from '$lib/api-client';
+	import type { Door } from '$lib/api/types';
 
 	interface Props {
 		data: PageData;
