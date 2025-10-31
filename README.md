@@ -4,7 +4,15 @@
 
 this is a simple web app with basic functionality built by reverse engineering their android app
 
-todo:
+## development
+
+get [mise](https://mise.jdx.dev)
+
+```sh
+$ mise start
+```
+
+## todo
 
 - [ ] access token refresh
 - [ ] setup progressive web app
