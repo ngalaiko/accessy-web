@@ -213,7 +213,6 @@
 		max-width: 400px;
 		width: 100%;
 		margin: 0 auto;
-		box-sizing: border-box;
 	}
 
 	h1 {
@@ -236,37 +235,54 @@
 
 	input {
 		padding: 0.5rem;
-		border: 1px solid #ccc;
-		border-radius: 4px;
+		border: 2px solid #000;
 		box-sizing: border-box;
 		width: 100%;
+		font-family: monospace;
 	}
 
 	button {
 		padding: 0.5rem 1rem;
 		background: #000;
 		color: #fff;
-		border: none;
-		border-radius: 4px;
+		border: 2px solid #000;
 		cursor: pointer;
+		font-family: monospace;
+		font-weight: bold;
+		text-transform: uppercase;
 	}
 
 	button:disabled {
-		background: #999;
+		background: #fff;
+		color: #000;
 		cursor: not-allowed;
+		border: 2px solid #000;
 	}
 
 	.status {
-		color: #060;
+		color: #000;
 		margin: 1rem 0;
+		border: 2px solid #000;
+		padding: 0.5rem;
+		background: #fff;
+		font-family: monospace;
 	}
 
 	.error {
-		color: #c00;
+		color: #000;
 		margin: 1rem 0;
+		border: 2px solid #000;
+		padding: 0.5rem;
+		background: #000;
+		color: #fff;
+		font-family: monospace;
 	}
 
 	@media (max-width: 480px) {
+		.login-page {
+			max-width: 100%;
+		}
+
 		h1 {
 			font-size: 1.25rem;
 		}

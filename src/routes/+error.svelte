@@ -17,19 +17,26 @@
 		justify-content: center;
 		min-height: 50vh;
 		text-align: center;
-		padding: 2rem;
+		padding: 1rem;
+		width: 100%;
+		max-width: 100%;
 	}
 
 	h1 {
-		font-size: 3rem;
+		font-size: 2rem;
 		margin-bottom: 1rem;
-		color: #c00;
+		color: #000;
+		font-family: monospace;
+		text-transform: uppercase;
+		word-break: break-word;
 	}
 
 	p {
-		font-size: 1.25rem;
+		font-size: 1rem;
 		margin-bottom: 2rem;
-		color: #666;
+		color: #000;
+		font-family: monospace;
+		word-break: break-word;
 	}
 
 	a {
@@ -37,11 +44,19 @@
 		background: #000;
 		color: #fff;
 		text-decoration: none;
-		border-radius: 4px;
-		transition: background 0.2s;
+		border: 2px solid #000;
+		font-family: monospace;
+		text-transform: uppercase;
+		font-weight: bold;
 	}
 
-	a:hover {
-		background: #333;
+	@media (min-width: 769px) {
+		h1 {
+			font-size: 3rem;
+		}
+
+		p {
+			font-size: 1.25rem;
+		}
 	}
 </style>

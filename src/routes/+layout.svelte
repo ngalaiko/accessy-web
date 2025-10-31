@@ -32,10 +32,28 @@
 </div>
 
 <style>
+	:global(html) {
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		box-sizing: border-box;
+		font-family: monospace;
+	}
+
+	:global(*) {
+		box-sizing: border-box;
+	}
+
 	.layout {
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 	}
 
 	.content {
@@ -43,49 +61,30 @@
 		max-width: 1200px;
 		width: 100%;
 		margin: 0 auto;
-		padding: 2rem 1rem;
-		box-sizing: border-box;
-	}
-
-	@media (max-width: 768px) {
-		.content {
-			padding: 1rem;
-			padding-bottom: 5rem;
-		}
+		padding: 1rem;
+		padding-bottom: 5rem;
 	}
 
 	footer {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		background: white;
+		border-top: 2px solid #000;
+		padding: 1rem;
 		text-align: center;
-		padding: 2rem 1rem;
-		margin-top: auto;
-		flex-shrink: 0;
-	}
-
-	@media (max-width: 768px) {
-		footer {
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			width: 100%;
-			background: white;
-			border-top: 1px solid #eee;
-			padding: 1rem;
-			z-index: 100;
-		}
 	}
 
 	.logout-link {
 		background: none;
 		border: none;
-		color: #666;
+		color: #000;
 		font-size: 0.875rem;
 		cursor: pointer;
 		text-decoration: underline;
 		padding: 0;
-	}
-
-	.logout-link:hover {
-		color: #000;
+		font-family: monospace;
 	}
 </style>

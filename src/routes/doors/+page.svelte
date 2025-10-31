@@ -56,24 +56,23 @@
 		<p>No doors available</p>
 	{:else}
 		<div class="door-grid">
-			{#each doors as door, i (door.publication_id)}
+			{#each doors as door (door.publication_id)}
 				{#if door.operations.length > 0}
 					<button
 						class="door-button"
 						class:unlocking={unlocking === door.operations[0].id}
 						onclick={() => handleUnlock(door)}
 						disabled={unlocking === door.operations[0].id}
-						style="animation-delay: {i * 0.05}s"
 					>
 						<div class="door-name">
-							{door.favorite ? '★ ' : ''}{door.name}
+							{door.name}
 						</div>
 						{#if unlocking === door.operations[0].id}
 							<div class="status-text">Unlocking...</div>
 						{/if}
 					</button>
 				{:else}
-					<div class="door-button disabled" style="animation-delay: {i * 0.05}s">
+					<div class="door-button disabled">
 						<div class="door-name">{door.name}</div>
 					</div>
 				{/if}
@@ -87,7 +86,7 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		box-sizing: border-box;
+		max-width: 100%;
 	}
 
 	.door-grid {
@@ -95,27 +94,8 @@
 		flex-wrap: wrap;
 		gap: 1rem;
 		justify-content: flex-start;
-	}
-
-	@keyframes fadeInUp {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			transform: scale(1);
-		}
-		50% {
-			transform: scale(0.95);
-		}
+		width: 100%;
+		max-width: 100%;
 	}
 
 	.door-button {
@@ -127,61 +107,51 @@
 		padding: 2rem 1rem;
 		background: #000;
 		color: #fff;
-		border: none;
-		border-radius: 8px;
+		border: 4px solid #000;
 		cursor: pointer;
 		font-size: 1rem;
-		min-height: 150px;
-		flex: 1 1 200px;
-		min-width: 200px;
-		max-width: 300px;
-		box-sizing: border-box;
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		animation: fadeInUp 0.5s ease-out backwards;
+		min-height: 120px;
+		flex: 1 1 calc(50% - 0.5rem);
+		min-width: 0;
+		max-width: 100%;
+		font-family: monospace;
+		text-transform: uppercase;
 	}
 
-	@media (max-width: 768px) {
+	@media (min-width: 769px) {
 		.door-button {
-			flex: 1 1 calc(50% - 0.5rem);
-			min-width: 0;
-			max-width: none;
+			flex: 1 1 200px;
+			min-width: 200px;
+			max-width: 300px;
+			min-height: 150px;
 		}
 	}
 
 	@media (max-width: 480px) {
 		.door-button {
 			flex: 1 1 100%;
+			padding: 1.5rem 1rem;
+			min-height: 100px;
 		}
 	}
 
-	.door-button:hover:not(:disabled):not(.disabled) {
-		background: #333;
-		transform: translateY(-4px) scale(1.02);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-	}
-
-	.door-button:active:not(:disabled):not(.disabled) {
-		transform: translateY(-2px) scale(1);
-	}
-
-	.door-button.unlocking {
-		animation: pulse 1s ease-in-out infinite !important;
-	}
-
 	.door-button:disabled {
-		background: #999;
+		background: #fff;
+		color: #000;
 		cursor: not-allowed;
+		border: 4px solid #000;
 	}
 
 	.door-button.disabled {
-		background: #ccc;
-		color: #666;
+		background: #fff;
+		color: #000;
 		cursor: not-allowed;
+		border: 4px solid #000;
 	}
 
 	.door-name {
 		font-weight: bold;
-		font-size: 1.125rem;
+		font-size: 1rem;
 		text-align: center;
 		display: flex;
 		align-items: center;
@@ -190,7 +160,6 @@
 
 	.status-text {
 		font-size: 0.875rem;
-		opacity: 0.8;
 		text-align: center;
 		display: flex;
 		align-items: center;
@@ -198,18 +167,11 @@
 	}
 
 	.error {
-		color: #c00;
+		color: #fff;
+		background: #000;
+		border: 2px solid #000;
+		padding: 0.5rem;
 		margin: 1rem 0;
-	}
-
-	@media (max-width: 480px) {
-		.door-button {
-			min-height: 120px;
-			padding: 1.5rem 1rem;
-		}
-
-		.door-name {
-			font-size: 1rem;
-		}
+		font-family: monospace;
 	}
 </style>
