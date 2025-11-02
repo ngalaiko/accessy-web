@@ -5,7 +5,6 @@ import SwiftUI
 struct NearestDoorView: View {
     @EnvironmentObject var locationService: LocationService
     @EnvironmentObject var nearestDoorService: NearestDoorService
-    @EnvironmentObject var deepLinkHandler: DeepLinkHandler
     @EnvironmentObject var authViewModel: AuthViewModel
     @State private var isUnlocking = false
 
@@ -63,18 +62,10 @@ struct NearestDoorView: View {
             }
         }
         .task {
-            locationService.requestAuthorization()
-            locationService.startUpdatingLocation()
             await loadDoors()
-        }
-        .onDisappear {
-            locationService.stopUpdatingLocation()
         }
         .onChange(of: locationService.currentLocation) { _, _ in
             nearestDoorService.updateNearestDoor(currentLocation: locationService.currentLocation)
-        }
-        .onChange(of: deepLinkHandler.pendingAction) { _, action in
-            handleDeepLinkAction(action)
         }
     }
 
@@ -105,18 +96,6 @@ struct NearestDoorView: View {
     }
 
     // MARK: - Helper Methods
-
-    private func handleDeepLinkAction(_ action: DeepLinkHandler.DeepLinkAction?) {
-        guard let action, !isUnlocking else { return }
-
-        switch action {
-        case .unlockNearest:
-            // Clear the action immediately to prevent multiple triggers
-            deepLinkHandler.clearAction()
-            // Trigger unlock
-            handleUnlock()
-        }
-    }
 
     private func loadDoors() async {
         guard let credentials = authViewModel.credentials else { return }

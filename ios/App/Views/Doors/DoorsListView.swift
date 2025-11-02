@@ -9,7 +9,6 @@ struct DoorsListView: View {
     var doorsService
 
     @EnvironmentObject var locationService: LocationService
-    @EnvironmentObject var deepLinkHandler: DeepLinkHandler
     @EnvironmentObject var authViewModel: AuthViewModel
     @State private var selectedTab = 0
     @State private var doors: [Door] = []
@@ -51,11 +50,7 @@ struct DoorsListView: View {
             }
         }
         .task {
-            locationService.requestAuthorization()
             await loadDoorsIfNeeded()
-        }
-        .onChange(of: deepLinkHandler.pendingAction) { _, action in
-            handleDeepLinkAction(action)
         }
     }
 
@@ -77,6 +72,7 @@ struct DoorsListView: View {
                     DoorRow(
                         door: door,
                         isUnlocking: unlockingDoorId == door.id,
+                        distance: calculateDistance(to: door),
                         onTap: { handleUnlock(door) }
                     )
                 }
@@ -103,19 +99,6 @@ struct DoorsListView: View {
 
     // MARK: - Actions
 
-    private func handleDeepLinkAction(_ action: DeepLinkHandler.DeepLinkAction?) {
-        guard let action else { return }
-
-        switch action {
-        case .unlockNearest:
-            // Switch to nearest door tab if location is authorized
-            if locationService.isAuthorized {
-                selectedTab = 0
-            }
-            // NearestDoorView will handle the actual unlock via deepLinkHandler
-        }
-    }
-
     private func loadDoorsIfNeeded() async {
         guard let credentials = authViewModel.credentials else { return }
         isLoading = true
@@ -130,6 +113,20 @@ struct DoorsListView: View {
         }
 
         isLoading = false
+    }
+
+    private func calculateDistance(to door: Door) -> CLLocationDistance? {
+        guard let currentLocation = locationService.currentLocation,
+              let position = door.asset.position2d else {
+            return nil
+        }
+
+        let doorLocation = CLLocation(
+            latitude: position.latitude,
+            longitude: position.longitude
+        )
+
+        return currentLocation.distance(from: doorLocation)
     }
 
     private func handleUnlock(_ door: Door) {

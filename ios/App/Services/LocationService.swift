@@ -26,11 +26,18 @@ class LocationService: NSObject, ObservableObject {
 
         // Set delegate first
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+
+        // Configure for accurate foreground-only location tracking
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.distanceFilter = kCLDistanceFilterNone  // Update on any movement
+        locationManager.activityType = .other  // General purpose activity
+        locationManager.pausesLocationUpdatesAutomatically = false  // Keep updates active
+        locationManager.allowsBackgroundLocationUpdates = false  // Foreground only
 
         // Now check the actual status
         authorizationStatus = locationManager.authorizationStatus
-        isAuthorized = locationManager.authorizationStatus == .authorizedWhenInUse
+        isAuthorized = locationManager.authorizationStatus == .authorizedWhenInUse ||
+            locationManager.authorizationStatus == .authorizedAlways
     }
 
     // MARK: - Public Methods

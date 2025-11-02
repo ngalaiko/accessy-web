@@ -46,14 +46,6 @@
     </array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Accessy needs your location to find and open the nearest door.</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Accessy needs your location to find and open the nearest door, even when the app is in the background.</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Accessy needs your location to find and open the nearest door, even when the app is in the background.</string>
-    <key>UIBackgroundModes</key>
-    <array>
-        <string>location</string>
-    </array>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
@@ -71,14 +63,5 @@
             </dict>
         </dict>
     </dict>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>accessy</string>
-            </array>
-        </dict>
-    </array>
 </dict>
 </plist>

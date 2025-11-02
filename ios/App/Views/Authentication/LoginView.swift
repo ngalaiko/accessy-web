@@ -29,17 +29,6 @@ struct LoginView: View {
             VStack(spacing: 24) {
                 Spacer()
 
-                // App icon/logo placeholder
-                Image(systemName: "lock.shield.fill")
-                    .font(.system(size: 60))
-                    .foregroundStyle(.blue)
-
-                Text("Accessy")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-
-                Spacer()
-
                 // Main content
                 VStack(spacing: 16) {
                     switch state.step {
@@ -52,8 +41,7 @@ struct LoginView: View {
                     }
                 }
                 .padding(.horizontal, 32)
-
-                Spacer()
+                
                 Spacer()
             }
             .navigationBarHidden(true)

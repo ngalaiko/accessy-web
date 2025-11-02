@@ -1,6 +1,23 @@
 import CoreLocation
 import Foundation
 
+/// Location overrides for specific doors
+private let doorLocationOverrides: [String: CLLocationCoordinate2D] = [
+    "F9114E43-B180-470F-B953-2D90FB67AA72": CLLocationCoordinate2D(
+        latitude: 57.711941,
+        longitude: 11.945427
+    ), // P.O nr 21
+    "B450D23A-451A-49B8-9D9A-07F7BB3EC36C": CLLocationCoordinate2D(
+        latitude: 57.711437,
+        longitude: 11.946004
+    ),
+    // United Spaces Theatre Plan 2
+    "F96EBB6D-B9EC-422F-905F-8A3B9575EA30": CLLocationCoordinate2D(
+        latitude: 57.711603,
+        longitude: 11.946576
+    ) // United Spaces reception Plan 2
+]
+
 /// Service for door operations
 class DoorsService {
     private let apiClient: APIClient
@@ -16,7 +33,29 @@ class DoorsService {
     /// Fetch list of available doors
     func getDoors(credentials: Credentials) async throws -> [Door] {
         let response = try await apiClient.getDoors(authToken: credentials.authToken)
-        return response.mostInvokedPublicationsList
+        return response.mostInvokedPublicationsList.map { fixDoor($0) }
+    }
+
+    /// Apply location overrides to a door if available
+    private func fixDoor(_ door: Door) -> Door {
+        guard let override = doorLocationOverrides[door.id] else {
+            return door
+        }
+
+        let newPosition = Door.Position(latitude: override.latitude, longitude: override.longitude)
+        let newAsset = Door.Asset(
+            id: door.asset.id,
+            name: door.asset.name,
+            operations: door.asset.operations,
+            position2d: newPosition
+        )
+
+        return Door(
+            publicationId: door.publicationId,
+            name: door.name,
+            asset: newAsset,
+            favorite: door.favorite
+        )
     }
 
     /// Unlock a specific door by ID

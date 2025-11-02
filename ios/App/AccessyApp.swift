@@ -13,7 +13,6 @@ struct AccessyApp: App {
     // ObservableObject services
     @StateObject private var locationService: LocationService
     @StateObject private var nearestDoorService: NearestDoorService
-    @StateObject private var deepLinkHandler: DeepLinkHandler
     @StateObject private var authViewModel: AuthViewModel
 
     init() {
@@ -27,7 +26,6 @@ struct AccessyApp: App {
         let doorsService = DoorsService(apiClient: apiClient, keyStore: keyStore)
         let locationService = LocationService()
         let nearestDoorService = NearestDoorService(doorsService: doorsService)
-        let deepLinkHandler = DeepLinkHandler()
         let authViewModel = AuthViewModel(authService: authService, credentialsStore: credentialsStore)
 
         // Store non-observable services
@@ -40,7 +38,6 @@ struct AccessyApp: App {
         // Store observable services as StateObjects
         _locationService = StateObject(wrappedValue: locationService)
         _nearestDoorService = StateObject(wrappedValue: nearestDoorService)
-        _deepLinkHandler = StateObject(wrappedValue: deepLinkHandler)
         _authViewModel = StateObject(wrappedValue: authViewModel)
     }
 
@@ -54,11 +51,7 @@ struct AccessyApp: App {
                 .environment(\.doorsService, doorsService)
                 .environmentObject(locationService)
                 .environmentObject(nearestDoorService)
-                .environmentObject(deepLinkHandler)
                 .environmentObject(authViewModel)
-                .onOpenURL { url in
-                    deepLinkHandler.handle(url: url)
-                }
         }
     }
 }
