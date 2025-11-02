@@ -17,9 +17,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FAFCCA22EB64F210068D59A"
-               BuildableName = "AccessyWidgetExtension.appex"
-               BlueprintName = "AccessyWidgetExtension"
-               ReferencedContainer = "container:AccessyApp.xcodeproj">
+               BuildableName = "Widget.appex"
+               BlueprintName = "Widget"
+               ReferencedContainer = "container:App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,9 +31,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FAFCC1A2EB5F6BA0068D59A"
-               BuildableName = "AccessyApp.app"
-               BlueprintName = "AccessyApp"
-               ReferencedContainer = "container:AccessyApp.xcodeproj">
+               BuildableName = "App.app"
+               BlueprintName = "App"
+               ReferencedContainer = "container:App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -63,18 +63,18 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FAFCCA22EB64F210068D59A"
-            BuildableName = "AccessyWidgetExtension.appex"
-            BlueprintName = "AccessyWidgetExtension"
-            ReferencedContainer = "container:AccessyApp.xcodeproj">
+            BuildableName = "Widget.appex"
+            BlueprintName = "Widget"
+            ReferencedContainer = "container:App.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FAFCC1A2EB5F6BA0068D59A"
-            BuildableName = "AccessyApp.app"
-            BlueprintName = "AccessyApp"
-            ReferencedContainer = "container:AccessyApp.xcodeproj">
+            BuildableName = "App.app"
+            BlueprintName = "App"
+            ReferencedContainer = "container:App.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <EnvironmentVariables>
@@ -108,9 +108,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FAFCC1A2EB5F6BA0068D59A"
-            BuildableName = "AccessyApp.app"
-            BlueprintName = "AccessyApp"
-            ReferencedContainer = "container:AccessyApp.xcodeproj">
+            BuildableName = "App.app"
+            BlueprintName = "App"
+            ReferencedContainer = "container:App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

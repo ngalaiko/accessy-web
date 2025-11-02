@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3FAFCC552EB5FC750068D59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAFCC2B2EB5F7060068D59A /* Assets.xcassets */; };
-		3FAFCCA62EB64F210068D59A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAFCCA52EB64F210068D59A /* WidgetKit.framework */; };
-		3FAFCCA82EB64F210068D59A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAFCCA72EB64F210068D59A /* SwiftUI.framework */; };
-		3FAFCCB72EB64F220068D59A /* AccessyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3FAFCCA32EB64F210068D59A /* AccessyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3FAFCCFA2EB653110068D59A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCD02EB652EF0068D59A /* AuthViewModel.swift */; };
 		3FAFCCFB2EB653110068D59A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCD12EB652EF0068D59A /* LoginView.swift */; };
 		3FAFCCFC2EB653110068D59A /* DoorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCD42EB652EF0068D59A /* DoorsViewModel.swift */; };
@@ -18,10 +15,7 @@
 		3FAFCCFF2EB653110068D59A /* DoorsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCD32EB652EF0068D59A /* DoorsListView.swift */; };
 		3FAFCD012EB653110068D59A /* NearestDoorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCD52EB652EF0068D59A /* NearestDoorView.swift */; };
 		3FAFCD032EB653110068D59A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCDE2EB652EF0068D59A /* ContentView.swift */; };
-		3FAFCD052EB6531A0068D59A /* AccessyWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCF62EB652EF0068D59A /* AccessyWidgetControl.swift */; };
-		3FAFCD082EB6531A0068D59A /* AccessyWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCF52EB652EF0068D59A /* AccessyWidgetBundle.swift */; };
 		3FAFCD2C2EB6647C0068D59A /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 3FAFCD2B2EB6647C0068D59A /* AppIcon.icon */; };
-		3FAFCD332EB69E010068D59A /* AccessyWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCF62EB652EF0068D59A /* AccessyWidgetControl.swift */; };
 		3FAFCD532EB6A07D0068D59A /* KeychainKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD4C2EB6A07D0068D59A /* KeychainKeyStore.swift */; };
 		3FAFCD562EB6A07D0068D59A /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD4B2EB6A07D0068D59A /* CredentialsStore.swift */; };
 		3FAFCD6E2EB6A4370068D59A /* DoorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD5E2EB6A4370068D59A /* DoorModels.swift */; };
@@ -44,7 +38,7 @@
 		3FAFCD842EB6A4370068D59A /* RecoveryStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD802EB6A4370068D59A /* RecoveryStepView.swift */; };
 		3FAFCD852EB6A4370068D59A /* DoorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD812EB6A4370068D59A /* DoorRow.swift */; };
 		3FAFCDB12EB6B0680068D59A /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCDB02EB6B0680068D59A /* DeepLinkHandler.swift */; };
-		3FAFCDB32EB6B2350068D59A /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCDB22EB6B2350068D59A /* EnvironmentKeys.swift */; };
+		3FAFCDBB2EB75DD70068D59A /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCDBA2EB75DD70068D59A /* EnvironmentKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +58,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				3FAFCCB72EB64F220068D59A /* AccessyWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,15 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3FAFCC1B2EB5F6BA0068D59A /* AccessyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FAFCC2A2EB5F7060068D59A /* AccessyApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AccessyApp.xcodeproj; sourceTree = "<group>"; };
 		3FAFCC2B2EB5F7060068D59A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FAFCC422EB5F7060068D59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FAFCCA32EB64F210068D59A /* AccessyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AccessyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FAFCCA52EB64F210068D59A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		3FAFCCA72EB64F210068D59A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		3FAFCCBD2EB64F8F0068D59A /* AccessyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AccessyApp.entitlements; sourceTree = "<group>"; };
-		3FAFCCBE2EB64FDA0068D59A /* AccessyWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AccessyWidgetExtension.entitlements; sourceTree = "<group>"; };
 		3FAFCCD02EB652EF0068D59A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		3FAFCCD12EB652EF0068D59A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3FAFCCD32EB652EF0068D59A /* DoorsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsListView.swift; sourceTree = "<group>"; };
@@ -88,8 +74,6 @@
 		3FAFCCD52EB652EF0068D59A /* NearestDoorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestDoorView.swift; sourceTree = "<group>"; };
 		3FAFCCDD2EB652EF0068D59A /* AccessyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessyApp.swift; sourceTree = "<group>"; };
 		3FAFCCDE2EB652EF0068D59A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3FAFCCF52EB652EF0068D59A /* AccessyWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessyWidgetBundle.swift; sourceTree = "<group>"; };
-		3FAFCCF62EB652EF0068D59A /* AccessyWidgetControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessyWidgetControl.swift; sourceTree = "<group>"; };
 		3FAFCD2B2EB6647C0068D59A /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		3FAFCD4B2EB6A07D0068D59A /* CredentialsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsStore.swift; sourceTree = "<group>"; };
 		3FAFCD4C2EB6A07D0068D59A /* KeychainKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeyStore.swift; sourceTree = "<group>"; };
@@ -113,26 +97,37 @@
 		3FAFCD802EB6A4370068D59A /* RecoveryStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryStepView.swift; sourceTree = "<group>"; };
 		3FAFCD812EB6A4370068D59A /* DoorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorRow.swift; sourceTree = "<group>"; };
 		3FAFCDB02EB6B0680068D59A /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
-		3FAFCDB22EB6B2350068D59A /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
+		3FAFCDBA2EB75DD70068D59A /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
+		3FAFCDBC2EB75E9A0068D59A /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = App.app; path = "/Users/nikita.galaiko/Developer/accessy/ios/build/Debug-iphoneos/App.app"; sourceTree = "<absolute>"; };
+		3FAFCDBD2EB75E9A0068D59A /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; name = Widget.appex; path = "/Users/nikita.galaiko/Developer/accessy/ios/build/Debug-iphoneos/Widget.appex"; sourceTree = "<absolute>"; };
+		3FAFCE012EB75F5B0068D59A /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3FAFCCB82EB64F220068D59A /* Exceptions for "AccessyWidget" folder in "AccessyWidgetExtension" target */ = {
+		3FAFCCB82EB64F220068D59A /* Exceptions for "Widget" folder in "Widget" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 3FAFCCA22EB64F210068D59A /* AccessyWidgetExtension */;
+			target = 3FAFCCA22EB64F210068D59A /* Widget */;
+		};
+		3FAFCDB92EB75BFE0068D59A /* Exceptions for "Widget" folder in "App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WidgetControl.swift,
+			);
+			target = 3FAFCC1A2EB5F6BA0068D59A /* App */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3FAFCCA92EB64F210068D59A /* AccessyWidget */ = {
+		3FAFCCA92EB64F210068D59A /* Widget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				3FAFCCB82EB64F220068D59A /* Exceptions for "AccessyWidget" folder in "AccessyWidgetExtension" target */,
+				3FAFCDB92EB75BFE0068D59A /* Exceptions for "Widget" folder in "App" target */,
+				3FAFCCB82EB64F220068D59A /* Exceptions for "Widget" folder in "Widget" target */,
 			);
-			path = AccessyWidget;
+			path = Widget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -149,8 +144,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FAFCCA82EB64F210068D59A /* SwiftUI.framework in Frameworks */,
-				3FAFCCA62EB64F210068D59A /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,41 +153,9 @@
 		3FAFCC122EB5F6BA0068D59A = {
 			isa = PBXGroup;
 			children = (
-				3FAFCCBE2EB64FDA0068D59A /* AccessyWidgetExtension.entitlements */,
-				3FAFCD2B2EB6647C0068D59A /* AppIcon.icon */,
-				3FAFCCBD2EB64F8F0068D59A /* AccessyApp.entitlements */,
-				3FAFCC2A2EB5F7060068D59A /* AccessyApp.xcodeproj */,
-				3FAFCC2B2EB5F7060068D59A /* Assets.xcassets */,
-				3FAFCC422EB5F7060068D59A /* Info.plist */,
-				3FAFCCA92EB64F210068D59A /* AccessyWidget */,
-				3FAFCCA42EB64F210068D59A /* Frameworks */,
-				3FAFCC1C2EB5F6BA0068D59A /* Products */,
+				3FAFCCA92EB64F210068D59A /* Widget */,
 				3FAFCCDF2EB652EF0068D59A /* App */,
-				3FAFCCF92EB652EF0068D59A /* Widget */,
 			);
-			sourceTree = "<group>";
-		};
-		3FAFCC1C2EB5F6BA0068D59A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3FAFCC1B2EB5F6BA0068D59A /* AccessyApp.app */,
-				3FAFCCA32EB64F210068D59A /* AccessyWidgetExtension.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3FAFCC432EB5F7060068D59A /* Products */ = {
-			isa = PBXGroup;
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3FAFCCA42EB64F210068D59A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3FAFCCA52EB64F210068D59A /* WidgetKit.framework */,
-				3FAFCCA72EB64F210068D59A /* SwiftUI.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3FAFCCD22EB652EF0068D59A /* Authentication */ = {
@@ -232,24 +193,18 @@
 		3FAFCCDF2EB652EF0068D59A /* App */ = {
 			isa = PBXGroup;
 			children = (
-				3FAFCDB22EB6B2350068D59A /* EnvironmentKeys.swift */,
+				3FAFCE012EB75F5B0068D59A /* App.entitlements */,
 				3FAFCD692EB6A4370068D59A /* Accessy */,
 				3FAFCD6D2EB6A4370068D59A /* Services */,
 				3FAFCD4F2EB6A07D0068D59A /* Storage */,
 				3FAFCCD72EB652EF0068D59A /* Views */,
 				3FAFCCDD2EB652EF0068D59A /* AccessyApp.swift */,
 				3FAFCCDE2EB652EF0068D59A /* ContentView.swift */,
+				3FAFCC2B2EB5F7060068D59A /* Assets.xcassets */,
+				3FAFCC422EB5F7060068D59A /* Info.plist */,
+				3FAFCD2B2EB6647C0068D59A /* AppIcon.icon */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		3FAFCCF92EB652EF0068D59A /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				3FAFCCF52EB652EF0068D59A /* AccessyWidgetBundle.swift */,
-				3FAFCCF62EB652EF0068D59A /* AccessyWidgetControl.swift */,
-			);
-			path = Widget;
 			sourceTree = "<group>";
 		};
 		3FAFCD4F2EB6A07D0068D59A /* Storage */ = {
@@ -298,6 +253,7 @@
 		3FAFCD6D2EB6A4370068D59A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3FAFCDBA2EB75DD70068D59A /* EnvironmentKeys.swift */,
 				3FAFCDB02EB6B0680068D59A /* DeepLinkHandler.swift */,
 				3FAFCD6A2EB6A4370068D59A /* AuthService.swift */,
 				3FAFCD6B2EB6A4370068D59A /* DoorsService.swift */,
@@ -310,9 +266,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3FAFCC1A2EB5F6BA0068D59A /* AccessyApp */ = {
+		3FAFCC1A2EB5F6BA0068D59A /* App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FAFCC262EB5F6BA0068D59A /* Build configuration list for PBXNativeTarget "AccessyApp" */;
+			buildConfigurationList = 3FAFCC262EB5F6BA0068D59A /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
 				3FAFCC172EB5F6BA0068D59A /* Sources */,
 				3FAFCC182EB5F6BA0068D59A /* Frameworks */,
@@ -324,16 +280,16 @@
 			dependencies = (
 				3FAFCCB62EB64F220068D59A /* PBXTargetDependency */,
 			);
-			name = AccessyApp;
+			name = App;
 			packageProductDependencies = (
 			);
 			productName = AccessyApp;
-			productReference = 3FAFCC1B2EB5F6BA0068D59A /* AccessyApp.app */;
+			productReference = 3FAFCDBC2EB75E9A0068D59A /* App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3FAFCCA22EB64F210068D59A /* AccessyWidgetExtension */ = {
+		3FAFCCA22EB64F210068D59A /* Widget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FAFCCB92EB64F220068D59A /* Build configuration list for PBXNativeTarget "AccessyWidgetExtension" */;
+			buildConfigurationList = 3FAFCCB92EB64F220068D59A /* Build configuration list for PBXNativeTarget "Widget" */;
 			buildPhases = (
 				3FAFCC9F2EB64F210068D59A /* Sources */,
 				3FAFCCA02EB64F210068D59A /* Frameworks */,
@@ -344,13 +300,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				3FAFCCA92EB64F210068D59A /* AccessyWidget */,
+				3FAFCCA92EB64F210068D59A /* Widget */,
 			);
-			name = AccessyWidgetExtension;
+			name = Widget;
 			packageProductDependencies = (
 			);
 			productName = AccessyWidgetExtension;
-			productReference = 3FAFCCA32EB64F210068D59A /* AccessyWidgetExtension.appex */;
+			productReference = 3FAFCDBD2EB75E9A0068D59A /* Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -371,7 +327,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3FAFCC162EB5F6BA0068D59A /* Build configuration list for PBXProject "AccessyApp" */;
+			buildConfigurationList = 3FAFCC162EB5F6BA0068D59A /* Build configuration list for PBXProject "App" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -381,18 +337,12 @@
 			mainGroup = 3FAFCC122EB5F6BA0068D59A;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 3FAFCC1C2EB5F6BA0068D59A /* Products */;
+			productRefGroup = 3FAFCC122EB5F6BA0068D59A;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3FAFCC432EB5F7060068D59A /* Products */;
-					ProjectRef = 3FAFCC2A2EB5F7060068D59A /* AccessyApp.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				3FAFCC1A2EB5F6BA0068D59A /* AccessyApp */,
-				3FAFCCA22EB64F210068D59A /* AccessyWidgetExtension */,
+				3FAFCC1A2EB5F6BA0068D59A /* App */,
+				3FAFCCA22EB64F210068D59A /* Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -439,14 +389,13 @@
 				3FAFCD782EB6A4370068D59A /* AuthService.swift in Sources */,
 				3FAFCD7C2EB6A4370068D59A /* NearestDoorService.swift in Sources */,
 				3FAFCD792EB6A4370068D59A /* CertificateExtractor.swift in Sources */,
-				3FAFCDB32EB6B2350068D59A /* EnvironmentKeys.swift in Sources */,
+				3FAFCDBB2EB75DD70068D59A /* EnvironmentKeys.swift in Sources */,
 				3FAFCD7A2EB6A4370068D59A /* APIClient.swift in Sources */,
 				3FAFCD7B2EB6A4370068D59A /* ECDH.swift in Sources */,
 				3FAFCD562EB6A07D0068D59A /* CredentialsStore.swift in Sources */,
 				3FAFCCFE2EB653110068D59A /* AccessyApp.swift in Sources */,
 				3FAFCCFF2EB653110068D59A /* DoorsListView.swift in Sources */,
 				3FAFCD012EB653110068D59A /* NearestDoorView.swift in Sources */,
-				3FAFCD332EB69E010068D59A /* AccessyWidgetControl.swift in Sources */,
 				3FAFCD032EB653110068D59A /* ContentView.swift in Sources */,
 				3FAFCD822EB6A4370068D59A /* PhoneStepView.swift in Sources */,
 				3FAFCD832EB6A4370068D59A /* CodeStepView.swift in Sources */,
@@ -459,8 +408,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FAFCD052EB6531A0068D59A /* AccessyWidgetControl.swift in Sources */,
-				3FAFCD082EB6531A0068D59A /* AccessyWidgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +416,7 @@
 /* Begin PBXTargetDependency section */
 		3FAFCCB62EB64F220068D59A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3FAFCCA22EB64F210068D59A /* AccessyWidgetExtension */;
+			target = 3FAFCCA22EB64F210068D59A /* Widget */;
 			targetProxy = 3FAFCCB52EB64F220068D59A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -601,18 +548,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AccessyApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5S3AM79MK3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Accessy;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Accessy needs your location to find and open the nearest door.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,12 +570,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rocks.galaiko.AccessyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -635,18 +588,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AccessyApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5S3AM79MK3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Accessy;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Accessy needs your location to find and open the nearest door.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,12 +610,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rocks.galaiko.AccessyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -669,13 +628,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = AccessyWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5S3AM79MK3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AccessyWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AccessyWidget;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Accessy Widget";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -687,11 +646,15 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -700,13 +663,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = AccessyWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5S3AM79MK3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AccessyWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AccessyWidget;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Accessy Widget";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -718,18 +681,22 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3FAFCC162EB5F6BA0068D59A /* Build configuration list for PBXProject "AccessyApp" */ = {
+		3FAFCC162EB5F6BA0068D59A /* Build configuration list for PBXProject "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FAFCC242EB5F6BA0068D59A /* Debug */,
@@ -738,7 +705,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FAFCC262EB5F6BA0068D59A /* Build configuration list for PBXNativeTarget "AccessyApp" */ = {
+		3FAFCC262EB5F6BA0068D59A /* Build configuration list for PBXNativeTarget "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FAFCC272EB5F6BA0068D59A /* Debug */,
@@ -747,7 +714,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FAFCCB92EB64F220068D59A /* Build configuration list for PBXNativeTarget "AccessyWidgetExtension" */ = {
+		3FAFCCB92EB64F220068D59A /* Build configuration list for PBXNativeTarget "Widget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FAFCCBA2EB64F220068D59A /* Debug */,

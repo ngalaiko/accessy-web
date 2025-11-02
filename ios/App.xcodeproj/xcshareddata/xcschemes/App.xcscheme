@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FAFCC1A2EB5F6BA0068D59A"
-               BuildableName = "AccessyApp.app"
-               BlueprintName = "AccessyApp"
-               ReferencedContainer = "container:AccessyApp.xcodeproj">
+               BuildableName = "App.app"
+               BlueprintName = "App"
+               ReferencedContainer = "container:App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FAFCC1A2EB5F6BA0068D59A"
-            BuildableName = "AccessyApp.app"
-            BlueprintName = "AccessyApp"
-            ReferencedContainer = "container:AccessyApp.xcodeproj">
+            BuildableName = "App.app"
+            BlueprintName = "App"
+            ReferencedContainer = "container:App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FAFCC1A2EB5F6BA0068D59A"
-            BuildableName = "AccessyApp.app"
-            BlueprintName = "AccessyApp"
-            ReferencedContainer = "container:AccessyApp.xcodeproj">
+            BuildableName = "App.app"
+            BlueprintName = "App"
+            ReferencedContainer = "container:App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
