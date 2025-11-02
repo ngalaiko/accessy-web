@@ -1,25 +1,7 @@
-[tools]
-node = "22"
-pnpm = "latest"
+experimental_monorepo_root = true
 
-[tasks.install]
-description = "Install dependencies"
-run = "pnpm install"
-
-[tasks.start]
-description = "Start development server"
-depends = ["install"]
-run = "pnpm dev --host 0.0.0.0"
-
-[tasks.format]
-description = "Format code with Prettier"
-depends = ["install"]
-run = "pnpm format"
-
-[tasks.lint]
-description = "Lint and type check all code"
-depends = ["install"]
-run = "pnpm lint"
+[settings]
+experimental = true
 
 [tasks."no-diff"]
 description = "Check for uncommitted changes"

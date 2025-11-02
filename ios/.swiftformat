@@ -1,0 +1,56 @@
+# SwiftFormat configuration for AccessyApp
+# Keep consistent with SwiftLint configuration
+
+# Swift version
+--swiftversion 5.0
+
+# Indentation
+--indent 4
+--tabwidth 4
+--smarttabs enabled
+
+# Line length
+--maxwidth 120
+
+# Trailing commas - disable to match SwiftLint
+--trailingcommas never
+
+# Import ordering
+--importgrouping testable-bottom
+
+# Whitespace
+--trimwhitespace always
+--nospaceoperators ...,..<
+--ranges spaced
+
+# Wrapping
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--closingparen balanced
+
+# Braces
+--allman false
+--elseposition same-line
+--guardelse same-line
+
+# Semicolons
+--semicolons never
+
+# Header comments
+--header strip
+
+# Redundant code
+--redundanttype inferred
+
+# Other formatting
+--self remove
+--stripunusedargs closure-only
+--extensionacl on-declarations
+--modifierorder nonisolated,override,public,internal,fileprivate,private,static,class,final,required,convenience,lazy,weak,unowned
+--ifdef no-indent
+
+# Rules to disable (consistent with SwiftLint configuration)
+--disable blankLinesBetweenScopes
+--disable consecutiveSpaces
+--disable wrapMultilineStatementBraces

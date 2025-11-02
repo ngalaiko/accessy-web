@@ -1,0 +1,11 @@
+[tools]
+swiftformat = "0.58.5"
+swiftlint = "0.62.2"
+
+[tasks.format]
+description = "Format Swift code"
+run = "find . -name '*.swift' | xargs swiftformat"
+
+[tasks.lint]
+description = "Lint Swift code"
+run = "find . -name '*swift' | xargs swiftlint"
