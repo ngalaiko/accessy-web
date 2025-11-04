@@ -1,19 +1,51 @@
 {
   "fill" : {
-    "automatic-gradient" : "extended-srgb:0.00000,0.47843,1.00000,1.00000"
+    "automatic-gradient" : "display-p3:0.92697,0.91737,0.96611,1.00000"
   },
   "groups" : [
     {
       "layers" : [
         {
-          "hidden" : false,
-          "image-name" : "key.horizontal.fill@4x.png",
-          "name" : "key.horizontal.fill",
+          "blend-mode-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : "normal"
+            }
+          ],
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : {
+                "linear-gradient" : [
+                  "display-p3:0.99320,1.00000,0.99826,1.00000",
+                  "display-p3:0.91181,0.90660,0.96611,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.5,
+                    "y" : 0
+                  },
+                  "stop" : {
+                    "x" : 0.5,
+                    "y" : 0.7
+                  }
+                }
+              }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "extended-srgb:0.00000,0.47843,1.00000,1.00000"
+              }
+            }
+          ],
+          "image-name" : "icon 4.svg",
+          "name" : "icon 4",
           "position" : {
-            "scale" : 1,
+            "scale" : 0.7,
             "translation-in-points" : [
-              0.5,
-              1
+              12.75,
+              -0.024000000000114596
             ]
           }
         }

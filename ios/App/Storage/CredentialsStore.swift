@@ -9,7 +9,7 @@ import Security
 /// - Can be synced via iCloud Keychain (if enabled)
 /// - Separate from app sandbox (survives app deletion)
 class CredentialsStore {
-    private let service = "com.accessy.app"
+    private let service = "rocks.galaiko.cerve"
     private let credentialsKey = "credentials"
     private let keyStore: KeychainKeyStore
 

@@ -1,11 +1,11 @@
-# SwiftLint configuration for AccessyApp
+# SwiftLint configuration for Cerve
 
 # Paths to include/exclude
 included:
-  - AccessyApp
+  - App
 
 excluded:
-  - AccessyApp/Assets.xcassets
+  - App/Assets.xcassets
   - .build
   - DerivedData
   - build

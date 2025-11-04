@@ -11,7 +11,7 @@ struct RecoveryStepView: View {
             Text("Enter recovery key")
                 .font(.headline)
 
-            Text("This device requires a recovery key")
+            Text("This device requires a recovery key. You can find it in the Accessy app → Settings → Show recovery code")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)

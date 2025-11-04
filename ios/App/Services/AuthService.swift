@@ -71,7 +71,7 @@ class AuthService {
             recoveryKey: recoveryKey,
             csrForSigning: csrForSigning,
             csrForLogin: csrForLogin,
-            appName: "Accessy-iOS"
+            appName: "Cerve-iOS"
         )
 
         let enrollResponse = try await apiClient.enrollDevice(

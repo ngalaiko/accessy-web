@@ -15,17 +15,9 @@ struct NearestDoorView: View {
             } else if let nearest = nearestDoorService.nearestDoor {
                 VStack(spacing: 16) {
                     // Door info
-                    VStack(spacing: 8) {
-                        Text(nearest.name)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-
-                        if let distance = nearestDoorService.distanceToNearest {
-                            Text(formatDistance(distance))
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
-                    }
+                    Text(nearest.name)
+                        .font(.title2)
+                        .fontWeight(.semibold)
 
                     // Open button
                     Button(action: handleUnlock) {

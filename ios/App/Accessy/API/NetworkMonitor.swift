@@ -12,7 +12,7 @@ class NetworkMonitor: ObservableObject {
     @Published private(set) var connectionType: NWInterface.InterfaceType?
 
     private let monitor = NWPathMonitor()
-    private let queue = DispatchQueue(label: "com.accessy.networkmonitor")
+    private let queue = DispatchQueue(label: "rocks.galaiko.cerve.networkmonitor")
 
     private init() {
         startMonitoring()

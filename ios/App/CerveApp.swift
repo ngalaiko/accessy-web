@@ -2,7 +2,7 @@ import Combine
 import SwiftUI
 
 @main
-struct AccessyApp: App {
+struct CerveApp: App {
     // Create service instances
     private let keyStore: KeychainKeyStore
     private let credentialsStore: CredentialsStore

@@ -12,11 +12,6 @@ struct DoorRow: View {
             HStack {
                 Text(door.name)
                 Spacer()
-                if let distance = distance {
-                    Text(formatDistance(distance))
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
                 if isUnlocking {
                     ProgressView()
                 }

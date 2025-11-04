@@ -10,8 +10,8 @@ enum KeychainError: Error {
 }
 
 class KeychainKeyStore {
-    private let service = "com.accessy.app.keys"
-    private let accessGroup = "5S3AM79MK3.rocks.galaiko.AccessyApp"
+    private let service = "rocks.galaiko.cerve.keys"
+    private let accessGroup = "5S3AM79MK3.rocks.galaiko.cerve"
 
     init() {}
 

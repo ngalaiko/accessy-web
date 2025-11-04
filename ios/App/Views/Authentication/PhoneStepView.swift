@@ -10,6 +10,11 @@ struct PhoneStepView: View {
             Text("Enter your phone number")
                 .font(.headline)
 
+            Text("Use the phone number registered with the Accessy app")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+
             TextField("Phone Number", text: $phoneNumber)
                 .textFieldStyle(.roundedBorder)
                 .textContentType(.telephoneNumber)
