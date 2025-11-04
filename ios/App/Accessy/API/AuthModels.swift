@@ -78,8 +78,17 @@ struct Credentials: Codable {
     let deviceId: String
     let userId: String
     let certBase64: String
+    let isDemoMode: Bool
 
     // Key identifiers for looking up SecKey in Keychain
     var loginKeyIdentifier: String { "login-\(deviceId)" }
     var signingKeyIdentifier: String { "signing-\(deviceId)" }
+
+    init(authToken: String, deviceId: String, userId: String, certBase64: String, isDemoMode: Bool = false) {
+        self.authToken = authToken
+        self.deviceId = deviceId
+        self.userId = userId
+        self.certBase64 = certBase64
+        self.isDemoMode = isDemoMode
+    }
 }

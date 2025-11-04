@@ -15,12 +15,27 @@ class AuthService {
 
     /// Request SMS verification code
     func requestVerificationCode(phoneNumber: String) async throws -> String {
+        // Demo mode: accept demo phone numbers
+        if DemoData.isDemoPhoneNumber(phoneNumber) {
+            return "demo-verification-id"
+        }
+
         let response = try await apiClient.requestVerification(msisdn: phoneNumber)
         return response.verificationCodeId
     }
 
     /// Submit verification code and get enrollment token
     func submitVerificationCode(code: String, verificationCodeId: String) async throws -> EnrollmentToken {
+        // Demo mode: accept any code for demo verification ID
+        if verificationCodeId == "demo-verification-id" {
+            return EnrollmentToken(
+                token: "demo-enroll-token",
+                recoveryKeyRequired: false,
+                userId: "demo-user-id",
+                deviceId: "demo-device-id"
+            )
+        }
+
         let response = try await apiClient.submitVerificationCode(code: code, id: verificationCodeId)
 
         // Decode JWT to extract user/device info
@@ -38,6 +53,11 @@ class AuthService {
 
     /// Validate recovery key
     func validateRecoveryKey(recoveryKey: String, enrollToken: String) async throws -> Bool {
+        // Demo mode: accept any recovery key
+        if enrollToken == "demo-enroll-token" {
+            return true
+        }
+
         let response = try await apiClient.validateRecoveryKey(recoveryKey: recoveryKey, enrollToken: enrollToken)
         return response.valid
     }
@@ -49,6 +69,11 @@ class AuthService {
         recoveryKey: String?,
         enrollToken: EnrollmentToken
     ) async throws -> Credentials {
+        // Demo mode: return demo credentials without any crypto operations
+        if enrollToken.token == "demo-enroll-token" {
+            return DemoData.createDemoCredentials()
+        }
+
         // Generate key pairs on device
         let signingKeyPair = try CryptoKeys.generateKeyPair()
         let loginKeyPair = try CryptoKeys.generateKeyPair()

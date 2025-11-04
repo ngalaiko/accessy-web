@@ -32,6 +32,11 @@ class DoorsService {
 
     /// Fetch list of available doors
     func getDoors(credentials: Credentials) async throws -> [Door] {
+        // Demo mode: return sample doors
+        if credentials.isDemoMode {
+            return DemoData.sampleDoors
+        }
+
         let response = try await apiClient.getDoors(authToken: credentials.authToken)
         return response.mostInvokedPublicationsList.map { fixDoor($0) }
     }
@@ -60,6 +65,13 @@ class DoorsService {
 
     /// Unlock a specific door by ID
     func unlockDoor(doorId: String, credentials: Credentials) async throws {
+        // Demo mode: simulate unlock without API call
+        if credentials.isDemoMode {
+            // Simulate network delay
+            try await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+            return
+        }
+
         // Get all doors to find the requested one
         let doors = try await getDoors(credentials: credentials)
 
@@ -83,6 +95,13 @@ class DoorsService {
 
     /// Unlock a door
     func unlockDoor(_ door: Door, credentials: Credentials) async throws {
+        // Demo mode: simulate unlock without API call
+        if credentials.isDemoMode {
+            // Simulate network delay
+            try await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+            return
+        }
+
         guard let operation = door.operations.first else {
             throw DoorsServiceError.noOperationsAvailable
         }

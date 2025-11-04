@@ -18,26 +18,33 @@ struct DoorsListView: View {
 
     var body: some View {
         NavigationView {
-            Group {
-                if locationService.isAuthorized {
-                    TabView(selection: $selectedTab) {
-                        // Nearest door (first tab, default)
-                        nearestDoor
-                            .tabItem {
-                                Label("Nearest", systemImage: "location.fill")
-                            }
-                            .tag(0)
+            VStack(spacing: 0) {
+                // Demo mode banner
+                if authViewModel.credentials?.isDemoMode == true {
+                    DemoModeBanner()
+                }
 
-                        // List of all doors
+                Group {
+                    if locationService.isAuthorized {
+                        TabView(selection: $selectedTab) {
+                            // Nearest door (first tab, default)
+                            nearestDoor
+                                .tabItem {
+                                    Label("Nearest", systemImage: "location.fill")
+                                }
+                                .tag(0)
+
+                            // List of all doors
+                            doorsList
+                                .tabItem {
+                                    Label("All Doors", systemImage: "list.bullet")
+                                }
+                                .tag(1)
+                        }
+                    } else {
+                        // Show only doors list without tabs when location is not authorized
                         doorsList
-                            .tabItem {
-                                Label("All Doors", systemImage: "list.bullet")
-                            }
-                            .tag(1)
                     }
-                } else {
-                    // Show only doors list without tabs when location is not authorized
-                    doorsList
                 }
             }
             .navigationTitle("Doors")

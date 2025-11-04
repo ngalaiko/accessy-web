@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1CAB4B2EBA401F004F4264 /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CAB492EBA401F004F4264 /* DemoData.swift */; };
+		3F1CAB4E2EBA403C004F4264 /* DemoModeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CAB4C2EBA403C004F4264 /* DemoModeBanner.swift */; };
 		3FAFCC552EB5FC750068D59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAFCC2B2EB5F7060068D59A /* Assets.xcassets */; };
 		3FAFCCFA2EB653110068D59A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCD02EB652EF0068D59A /* AuthViewModel.swift */; };
 		3FAFCCFB2EB653110068D59A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCD12EB652EF0068D59A /* LoginView.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F1CAB492EBA401F004F4264 /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
+		3F1CAB4C2EBA403C004F4264 /* DemoModeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeBanner.swift; sourceTree = "<group>"; };
 		3F929AAB2EB8C8E40030C680 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAFCC2B2EB5F7060068D59A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FAFCC422EB5F7060068D59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +105,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1CAB4A2EBA401F004F4264 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				3F1CAB492EBA401F004F4264 /* DemoData.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		3F1CAB4D2EBA403C004F4264 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3F1CAB4C2EBA403C004F4264 /* DemoModeBanner.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		3FAFCC122EB5F6BA0068D59A = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +155,7 @@
 		3FAFCCD72EB652EF0068D59A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F1CAB4D2EBA403C004F4264 /* Components */,
 				3FAFCCD22EB652EF0068D59A /* Authentication */,
 				3FAFCCD62EB652EF0068D59A /* Doors */,
 			);
@@ -204,6 +225,7 @@
 		3FAFCD6D2EB6A4370068D59A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3F1CAB4A2EBA401F004F4264 /* Demo */,
 				3FAFCDBA2EB75DD70068D59A /* EnvironmentKeys.swift */,
 				3FAFCD6A2EB6A4370068D59A /* AuthService.swift */,
 				3FAFCD6B2EB6A4370068D59A /* DoorsService.swift */,
@@ -311,7 +333,9 @@
 				3FAFCCFE2EB653110068D59A /* CerveApp.swift in Sources */,
 				3FAFCCFF2EB653110068D59A /* DoorsListView.swift in Sources */,
 				3FAFCD012EB653110068D59A /* NearestDoorView.swift in Sources */,
+				3F1CAB4B2EBA401F004F4264 /* DemoData.swift in Sources */,
 				3FAFCD032EB653110068D59A /* ContentView.swift in Sources */,
+				3F1CAB4E2EBA403C004F4264 /* DemoModeBanner.swift in Sources */,
 				3FAFCD822EB6A4370068D59A /* PhoneStepView.swift in Sources */,
 				3FAFCD832EB6A4370068D59A /* CodeStepView.swift in Sources */,
 				3FAFCD842EB6A4370068D59A /* RecoveryStepView.swift in Sources */,
