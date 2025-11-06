@@ -6,6 +6,14 @@ struct RecoveryStepView: View {
     let onContinue: () -> Void
     let onBack: () -> Void
 
+    private func extractUUID(from text: String) -> String {
+        let pattern = "[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}"
+        if let range = text.range(of: pattern, options: .regularExpression) {
+            return String(text[range])
+        }
+        return text
+    }
+
     var body: some View {
         VStack(spacing: 16) {
             Text("Enter recovery key")
@@ -18,11 +26,16 @@ struct RecoveryStepView: View {
             .foregroundStyle(.secondary)
             .multilineTextAlignment(.center)
 
-            SecureField("Recovery Key", text: $recoveryKey)
+            TextField("Recovery Key", text: $recoveryKey)
                 .textFieldStyle(.roundedBorder)
-                .textContentType(.password)
                 .autocorrectionDisabled()
-                .autocapitalization(.none)
+                .autocapitalization(.allCharacters)
+                .onChange(of: recoveryKey) { _, newValue in
+                    let extracted = extractUUID(from: newValue)
+                    if extracted != newValue {
+                        recoveryKey = extracted
+                    }
+                }
 
             Button(action: onContinue) {
                 if isLoading {
