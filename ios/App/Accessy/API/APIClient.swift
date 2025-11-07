@@ -140,11 +140,10 @@ class APIClient {
     // MARK: - Door Endpoints
 
     func getDoors(authToken: String) async throws -> DoorsResponse {
-        let endpoint = "/org/client-context/mobile"
+        let endpoint = "/asset/my-asset-publication?page_size=100"
 
         var headers = defaultHeaders
         headers["authorization"] = "Bearer \(authToken)"
-        headers["accept"] = "application/vnd.axessions.v2+json"
 
         return try await get(endpoint: endpoint, headers: headers)
     }

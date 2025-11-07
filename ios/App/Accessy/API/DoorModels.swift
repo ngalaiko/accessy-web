@@ -41,27 +41,13 @@ struct Door: Codable, Identifiable {
 // MARK: - API Responses
 
 struct DoorsResponse: Codable {
-    let mostInvokedPublicationsList: [Door]
+    let items: [Door]
 
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        var arrayContainer = try container.nestedUnkeyedContainer(forKey: .mostInvokedPublicationsList)
-
-        var doors: [Door] = []
-        while !arrayContainer.isAtEnd {
-            // Try to decode as Door, skip if it fails (handles mixed array with numbers)
-            if let door = try? arrayContainer.decode(Door.self) {
-                doors.append(door)
-            } else {
-                // Skip non-object elements (like the numbers in the array)
-                _ = try? arrayContainer.decode(Int.self)
-            }
-        }
-
-        mostInvokedPublicationsList = doors
+    var mostInvokedPublicationsList: [Door] {
+        items
     }
 
     enum CodingKeys: String, CodingKey {
-        case mostInvokedPublicationsList
+        case items
     }
 }
