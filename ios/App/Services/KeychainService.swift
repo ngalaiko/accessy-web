@@ -9,7 +9,7 @@ enum KeychainError: Error {
     case decodingFailed
 }
 
-class KeychainKeyStore {
+final class KeychainService {
     private let service = "rocks.galaiko.cerve.keys"
     private let accessGroup = "5S3AM79MK3.rocks.galaiko.cerve"
 

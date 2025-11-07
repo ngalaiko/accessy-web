@@ -2,12 +2,15 @@ import SwiftUI
 
 // MARK: - Environment Keys for Services
 
+// Note: Default values are provided for EnvironmentKey protocol conformance
+// but should never be used - services are always injected at app level
+
 private struct KeychainKeyStoreKey: EnvironmentKey {
-    static let defaultValue = KeychainKeyStore()
+    static let defaultValue = KeychainService()
 }
 
 private struct CredentialsStoreKey: EnvironmentKey {
-    static let defaultValue = CredentialsStore(keyStore: KeychainKeyStore())
+    static let defaultValue = CredentialsService(keyStore: KeychainService())
 }
 
 private struct APIClientKey: EnvironmentKey {
@@ -17,26 +20,26 @@ private struct APIClientKey: EnvironmentKey {
 private struct AuthServiceKey: EnvironmentKey {
     static let defaultValue = AuthService(
         apiClient: APIClient(),
-        keyStore: KeychainKeyStore()
+        keyStore: KeychainService()
     )
 }
 
 private struct DoorsServiceKey: EnvironmentKey {
     static let defaultValue = DoorsService(
         apiClient: APIClient(),
-        keyStore: KeychainKeyStore()
+        keyStore: KeychainService()
     )
 }
 
 // MARK: - EnvironmentValues Extensions
 
 extension EnvironmentValues {
-    var keyStore: KeychainKeyStore {
+    var keyStore: KeychainService {
         get { self[KeychainKeyStoreKey.self] }
         set { self[KeychainKeyStoreKey.self] = newValue }
     }
 
-    var credentialsStore: CredentialsStore {
+    var credentialsStore: CredentialsService {
         get { self[CredentialsStoreKey.self] }
         set { self[CredentialsStoreKey.self] = newValue }
     }

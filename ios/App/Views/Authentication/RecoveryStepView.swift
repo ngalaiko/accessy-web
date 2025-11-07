@@ -20,7 +20,10 @@ struct RecoveryStepView: View {
                 .font(.headline)
 
             Text(
-                "This device requires a recovery key. You can find it in the Accessy app → Settings → Show recovery code"
+                """
+                This device requires a recovery key. You can find it in the Accessy app → Settings → \
+                Show recovery code
+                """
             )
             .font(.subheadline)
             .foregroundStyle(.secondary)

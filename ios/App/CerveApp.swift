@@ -4,29 +4,33 @@ import SwiftUI
 @main
 struct CerveApp: App {
     // Create service instances
-    private let keyStore: KeychainKeyStore
-    private let credentialsStore: CredentialsStore
+    private let keyStore: KeychainService
+    private let credentialsStore: CredentialsService
     private let apiClient: APIClient
     private let authService: AuthService
     private let doorsService: DoorsService
 
-    // ObservableObject services
-    @StateObject private var locationService: LocationService
-    @StateObject private var nearestDoorService: NearestDoorService
+    // ObservableObject managers and view models
+    @StateObject private var locationManager: LocationManager
+    @StateObject private var nearestDoorManager: NearestDoorManager
     @StateObject private var authViewModel: AuthViewModel
+    @StateObject private var doorsViewModel: DoorsViewModel
 
     init() {
         // Initialize storage and API layers
-        let keyStore = KeychainKeyStore()
-        let credentialsStore = CredentialsStore(keyStore: keyStore)
+        let keyStore = KeychainService()
+        let credentialsStore = CredentialsService(keyStore: keyStore)
         let apiClient = APIClient()
 
         // Initialize services
         let authService = AuthService(apiClient: apiClient, keyStore: keyStore)
         let doorsService = DoorsService(apiClient: apiClient, keyStore: keyStore)
-        let locationService = LocationService()
-        let nearestDoorService = NearestDoorService(doorsService: doorsService)
+
+        // Initialize managers and view models
+        let locationManager = LocationManager()
+        let nearestDoorManager = NearestDoorManager(doorsService: doorsService)
         let authViewModel = AuthViewModel(authService: authService, credentialsStore: credentialsStore)
+        let doorsViewModel = DoorsViewModel(doorsService: doorsService)
 
         // Store non-observable services
         self.keyStore = keyStore
@@ -35,10 +39,11 @@ struct CerveApp: App {
         self.authService = authService
         self.doorsService = doorsService
 
-        // Store observable services as StateObjects
-        _locationService = StateObject(wrappedValue: locationService)
-        _nearestDoorService = StateObject(wrappedValue: nearestDoorService)
+        // Store managers and view models as StateObjects
+        _locationManager = StateObject(wrappedValue: locationManager)
+        _nearestDoorManager = StateObject(wrappedValue: nearestDoorManager)
         _authViewModel = StateObject(wrappedValue: authViewModel)
+        _doorsViewModel = StateObject(wrappedValue: doorsViewModel)
     }
 
     var body: some Scene {
@@ -49,9 +54,10 @@ struct CerveApp: App {
                 .environment(\.apiClient, apiClient)
                 .environment(\.authService, authService)
                 .environment(\.doorsService, doorsService)
-                .environmentObject(locationService)
-                .environmentObject(nearestDoorService)
+                .environmentObject(locationManager)
+                .environmentObject(nearestDoorManager)
                 .environmentObject(authViewModel)
+                .environmentObject(doorsViewModel)
         }
     }
 }

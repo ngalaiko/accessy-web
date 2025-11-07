@@ -13,11 +13,11 @@ class AuthViewModel: ObservableObject {
     // MARK: - Dependencies
 
     private let authService: AuthService
-    private let credentialsStore: CredentialsStore
+    private let credentialsStore: CredentialsService
 
     // MARK: - Initialization
 
-    init(authService: AuthService, credentialsStore: CredentialsStore) {
+    init(authService: AuthService, credentialsStore: CredentialsService) {
         self.authService = authService
         self.credentialsStore = credentialsStore
         loadCredentials()

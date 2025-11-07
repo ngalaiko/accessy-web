@@ -2,9 +2,9 @@ import Combine
 import CoreLocation
 import Foundation
 
-/// Service for managing nearest door functionality
+/// Manager for managing nearest door functionality
 @MainActor
-class NearestDoorService: ObservableObject {
+class NearestDoorManager: ObservableObject {
     @Published var doors: [Door] = []
     @Published var nearestDoor: Door?
     @Published var distanceToNearest: CLLocationDistance?
@@ -53,7 +53,7 @@ class NearestDoorService: ObservableObject {
     /// Unlock the nearest door
     func unlockNearestDoor(credentials: Credentials) async throws {
         guard let door = nearestDoor else {
-            throw NearestDoorServiceError.noNearestDoor
+            throw NearestDoorManagerError.noNearestDoor
         }
 
         try await doorsService.unlockDoor(door, credentials: credentials)
@@ -62,7 +62,7 @@ class NearestDoorService: ObservableObject {
 
 // MARK: - Errors
 
-enum NearestDoorServiceError: Error, LocalizedError {
+enum NearestDoorManagerError: Error, LocalizedError {
     case noNearestDoor
 
     var errorDescription: String? {

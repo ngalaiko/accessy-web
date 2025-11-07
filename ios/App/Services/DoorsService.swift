@@ -19,11 +19,11 @@ private let doorLocationOverrides: [String: CLLocationCoordinate2D] = [
 ]
 
 /// Service for door operations
-class DoorsService {
+final class DoorsService {
     private let apiClient: APIClient
-    private let keyStore: KeychainKeyStore
+    private let keyStore: KeychainService
 
-    init(apiClient: APIClient, keyStore: KeychainKeyStore) {
+    init(apiClient: APIClient, keyStore: KeychainService) {
         self.apiClient = apiClient
         self.keyStore = keyStore
     }

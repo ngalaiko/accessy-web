@@ -18,8 +18,6 @@
 		3FAFCD012EB653110068D59A /* NearestDoorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCD52EB652EF0068D59A /* NearestDoorView.swift */; };
 		3FAFCD032EB653110068D59A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCCDE2EB652EF0068D59A /* ContentView.swift */; };
 		3FAFCD2C2EB6647C0068D59A /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 3FAFCD2B2EB6647C0068D59A /* AppIcon.icon */; };
-		3FAFCD532EB6A07D0068D59A /* KeychainKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD4C2EB6A07D0068D59A /* KeychainKeyStore.swift */; };
-		3FAFCD562EB6A07D0068D59A /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD4B2EB6A07D0068D59A /* CredentialsStore.swift */; };
 		3FAFCD6E2EB6A4370068D59A /* DoorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD5E2EB6A4370068D59A /* DoorModels.swift */; };
 		3FAFCD6F2EB6A4370068D59A /* CryptoKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD622EB6A4370068D59A /* CryptoKeys.swift */; };
 		3FAFCD702EB6A4370068D59A /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD5D2EB6A4370068D59A /* AuthModels.swift */; };
@@ -29,17 +27,19 @@
 		3FAFCD742EB6A4370068D59A /* DoorsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD6B2EB6A4370068D59A /* DoorsService.swift */; };
 		3FAFCD752EB6A4370068D59A /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD652EB6A4370068D59A /* Encryption.swift */; };
 		3FAFCD762EB6A4370068D59A /* Signing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD672EB6A4370068D59A /* Signing.swift */; };
-		3FAFCD772EB6A4370068D59A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD6C2EB6A4370068D59A /* LocationService.swift */; };
 		3FAFCD782EB6A4370068D59A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD6A2EB6A4370068D59A /* AuthService.swift */; };
 		3FAFCD792EB6A4370068D59A /* CertificateExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD612EB6A4370068D59A /* CertificateExtractor.swift */; };
 		3FAFCD7A2EB6A4370068D59A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD5C2EB6A4370068D59A /* APIClient.swift */; };
 		3FAFCD7B2EB6A4370068D59A /* ECDH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD642EB6A4370068D59A /* ECDH.swift */; };
-		3FAFCD7C2EB6A4370068D59A /* NearestDoorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD7D2EB6A4370068D59A /* NearestDoorService.swift */; };
 		3FAFCD822EB6A4370068D59A /* PhoneStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD7E2EB6A4370068D59A /* PhoneStepView.swift */; };
 		3FAFCD832EB6A4370068D59A /* CodeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD7F2EB6A4370068D59A /* CodeStepView.swift */; };
 		3FAFCD842EB6A4370068D59A /* RecoveryStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD802EB6A4370068D59A /* RecoveryStepView.swift */; };
 		3FAFCD852EB6A4370068D59A /* DoorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCD812EB6A4370068D59A /* DoorRow.swift */; };
 		3FAFCDBB2EB75DD70068D59A /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFCDBA2EB75DD70068D59A /* EnvironmentKeys.swift */; };
+		3FEDACA12EBE310B007D5291 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDAC9E2EBE310B007D5291 /* LocationManager.swift */; };
+		3FEDACA22EBE310B007D5291 /* NearestDoorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDAC9F2EBE310B007D5291 /* NearestDoorManager.swift */; };
+		3FEDACA52EBE31BE007D5291 /* CredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDACA32EBE31BE007D5291 /* CredentialsService.swift */; };
+		3FEDACA62EBE31BE007D5291 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDACA42EBE31BE007D5291 /* KeychainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,8 +69,6 @@
 		3FAFCCDD2EB652EF0068D59A /* CerveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CerveApp.swift; sourceTree = "<group>"; };
 		3FAFCCDE2EB652EF0068D59A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3FAFCD2B2EB6647C0068D59A /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
-		3FAFCD4B2EB6A07D0068D59A /* CredentialsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsStore.swift; sourceTree = "<group>"; };
-		3FAFCD4C2EB6A07D0068D59A /* KeychainKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeyStore.swift; sourceTree = "<group>"; };
 		3FAFCD5C2EB6A4370068D59A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		3FAFCD5D2EB6A4370068D59A /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
 		3FAFCD5E2EB6A4370068D59A /* DoorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorModels.swift; sourceTree = "<group>"; };
@@ -84,14 +82,16 @@
 		3FAFCD672EB6A4370068D59A /* Signing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signing.swift; sourceTree = "<group>"; };
 		3FAFCD6A2EB6A4370068D59A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3FAFCD6B2EB6A4370068D59A /* DoorsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsService.swift; sourceTree = "<group>"; };
-		3FAFCD6C2EB6A4370068D59A /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		3FAFCD7D2EB6A4370068D59A /* NearestDoorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestDoorService.swift; sourceTree = "<group>"; };
 		3FAFCD7E2EB6A4370068D59A /* PhoneStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneStepView.swift; sourceTree = "<group>"; };
 		3FAFCD7F2EB6A4370068D59A /* CodeStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeStepView.swift; sourceTree = "<group>"; };
 		3FAFCD802EB6A4370068D59A /* RecoveryStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryStepView.swift; sourceTree = "<group>"; };
 		3FAFCD812EB6A4370068D59A /* DoorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorRow.swift; sourceTree = "<group>"; };
 		3FAFCDBA2EB75DD70068D59A /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		3FAFCE012EB75F5B0068D59A /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
+		3FEDAC9E2EBE310B007D5291 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3FEDAC9F2EBE310B007D5291 /* NearestDoorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestDoorManager.swift; sourceTree = "<group>"; };
+		3FEDACA32EBE31BE007D5291 /* CredentialsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsService.swift; sourceTree = "<group>"; };
+		3FEDACA42EBE31BE007D5291 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +165,10 @@
 		3FAFCCDF2EB652EF0068D59A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				3FEDACA02EBE310B007D5291 /* Managers */,
 				3FAFCE012EB75F5B0068D59A /* App.entitlements */,
 				3FAFCD692EB6A4370068D59A /* Accessy */,
 				3FAFCD6D2EB6A4370068D59A /* Services */,
-				3FAFCD4F2EB6A07D0068D59A /* Storage */,
 				3FAFCCD72EB652EF0068D59A /* Views */,
 				3FAFCCDD2EB652EF0068D59A /* CerveApp.swift */,
 				3FAFCCDE2EB652EF0068D59A /* ContentView.swift */,
@@ -177,15 +177,6 @@
 				3FAFCD2B2EB6647C0068D59A /* AppIcon.icon */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		3FAFCD4F2EB6A07D0068D59A /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				3FAFCD4B2EB6A07D0068D59A /* CredentialsStore.swift */,
-				3FAFCD4C2EB6A07D0068D59A /* KeychainKeyStore.swift */,
-			);
-			path = Storage;
 			sourceTree = "<group>";
 		};
 		3FAFCD602EB6A4370068D59A /* API */ = {
@@ -225,14 +216,23 @@
 		3FAFCD6D2EB6A4370068D59A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3FEDACA32EBE31BE007D5291 /* CredentialsService.swift */,
+				3FEDACA42EBE31BE007D5291 /* KeychainService.swift */,
 				3F1CAB4A2EBA401F004F4264 /* Demo */,
 				3FAFCDBA2EB75DD70068D59A /* EnvironmentKeys.swift */,
 				3FAFCD6A2EB6A4370068D59A /* AuthService.swift */,
 				3FAFCD6B2EB6A4370068D59A /* DoorsService.swift */,
-				3FAFCD6C2EB6A4370068D59A /* LocationService.swift */,
-				3FAFCD7D2EB6A4370068D59A /* NearestDoorService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3FEDACA02EBE310B007D5291 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3FEDAC9E2EBE310B007D5291 /* LocationManager.swift */,
+				3FEDAC9F2EBE310B007D5291 /* NearestDoorManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,7 +312,6 @@
 				3FAFCCFA2EB653110068D59A /* AuthViewModel.swift in Sources */,
 				3FAFCCFB2EB653110068D59A /* LoginView.swift in Sources */,
 				3FAFCCFC2EB653110068D59A /* DoorsViewModel.swift in Sources */,
-				3FAFCD532EB6A07D0068D59A /* KeychainKeyStore.swift in Sources */,
 				3FAFCD6E2EB6A4370068D59A /* DoorModels.swift in Sources */,
 				3FAFCD6F2EB6A4370068D59A /* CryptoKeys.swift in Sources */,
 				3FAFCD702EB6A4370068D59A /* AuthModels.swift in Sources */,
@@ -322,22 +321,23 @@
 				3FAFCD742EB6A4370068D59A /* DoorsService.swift in Sources */,
 				3FAFCD752EB6A4370068D59A /* Encryption.swift in Sources */,
 				3FAFCD762EB6A4370068D59A /* Signing.swift in Sources */,
-				3FAFCD772EB6A4370068D59A /* LocationService.swift in Sources */,
 				3FAFCD782EB6A4370068D59A /* AuthService.swift in Sources */,
-				3FAFCD7C2EB6A4370068D59A /* NearestDoorService.swift in Sources */,
 				3FAFCD792EB6A4370068D59A /* CertificateExtractor.swift in Sources */,
 				3FAFCDBB2EB75DD70068D59A /* EnvironmentKeys.swift in Sources */,
 				3FAFCD7A2EB6A4370068D59A /* APIClient.swift in Sources */,
 				3FAFCD7B2EB6A4370068D59A /* ECDH.swift in Sources */,
-				3FAFCD562EB6A07D0068D59A /* CredentialsStore.swift in Sources */,
 				3FAFCCFE2EB653110068D59A /* CerveApp.swift in Sources */,
 				3FAFCCFF2EB653110068D59A /* DoorsListView.swift in Sources */,
 				3FAFCD012EB653110068D59A /* NearestDoorView.swift in Sources */,
+				3FEDACA12EBE310B007D5291 /* LocationManager.swift in Sources */,
+				3FEDACA22EBE310B007D5291 /* NearestDoorManager.swift in Sources */,
 				3F1CAB4B2EBA401F004F4264 /* DemoData.swift in Sources */,
 				3FAFCD032EB653110068D59A /* ContentView.swift in Sources */,
 				3F1CAB4E2EBA403C004F4264 /* DemoModeBanner.swift in Sources */,
 				3FAFCD822EB6A4370068D59A /* PhoneStepView.swift in Sources */,
 				3FAFCD832EB6A4370068D59A /* CodeStepView.swift in Sources */,
+				3FEDACA52EBE31BE007D5291 /* CredentialsService.swift in Sources */,
+				3FEDACA62EBE31BE007D5291 /* KeychainService.swift in Sources */,
 				3FAFCD842EB6A4370068D59A /* RecoveryStepView.swift in Sources */,
 				3FAFCD852EB6A4370068D59A /* DoorRow.swift in Sources */,
 			);

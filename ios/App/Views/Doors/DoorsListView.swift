@@ -5,16 +5,10 @@ import UIKit
 /// Pure UI view for doors list
 /// All business logic is in DoorsViewModel
 struct DoorsListView: View {
-    @Environment(\.doorsService)
-    var doorsService
-
-    @EnvironmentObject var locationService: LocationService
+    @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var doorsViewModel: DoorsViewModel
     @State private var selectedTab = 0
-    @State private var doors: [Door] = []
-    @State private var isLoading = false
-    @State private var unlockingDoorId: String?
-    @State private var errorMessage: String?
 
     var body: some View {
         NavigationView {
@@ -25,7 +19,7 @@ struct DoorsListView: View {
                 }
 
                 Group {
-                    if locationService.isAuthorized {
+                    if locationManager.isAuthorized {
                         TabView(selection: $selectedTab) {
                             // Nearest door (first tab, default)
                             nearestDoor
@@ -65,33 +59,39 @@ struct DoorsListView: View {
 
     private var doorsList: some View {
         List {
-            if isLoading && doors.isEmpty {
+            if doorsViewModel.isLoading && doorsViewModel.doors.isEmpty {
                 HStack {
                     Spacer()
                     ProgressView()
                     Spacer()
                 }
-            } else if doors.isEmpty {
+            } else if doorsViewModel.doors.isEmpty {
                 Text("No doors available")
                     .foregroundColor(.secondary)
             } else {
-                ForEach(doors) { door in
+                ForEach(doorsViewModel.doors) { door in
                     DoorRow(
                         door: door,
-                        isUnlocking: unlockingDoorId == door.id,
+                        isUnlocking: doorsViewModel.unlockingDoorId == door.id,
                         distance: calculateDistance(to: door),
-                        onTap: { handleUnlock(door) },
-                        onFavoriteTap: { handleFavoriteToggle(door) }
+                        onTap: {
+                            guard let credentials = authViewModel.credentials else { return }
+                            Task { await doorsViewModel.unlockDoor(door, credentials: credentials) }
+                        },
+                        onFavoriteTap: {
+                            guard let credentials = authViewModel.credentials else { return }
+                            Task { await doorsViewModel.toggleFavorite(door, credentials: credentials) }
+                        }
                     )
                 }
             }
         }
-        .alert("Error", isPresented: .constant(errorMessage != nil)) {
+        .alert("Error", isPresented: .constant(doorsViewModel.errorMessage != nil)) {
             Button("OK") {
-                errorMessage = nil
+                doorsViewModel.clearError()
             }
         } message: {
-            if let error = errorMessage {
+            if let error = doorsViewModel.errorMessage {
                 Text(error)
             }
         }
@@ -109,22 +109,11 @@ struct DoorsListView: View {
 
     private func loadDoorsIfNeeded() async {
         guard let credentials = authViewModel.credentials else { return }
-        isLoading = true
-        errorMessage = nil
-
-        do {
-            doors = try await doorsService.getDoors(credentials: credentials)
-        } catch let error as APIError {
-            errorMessage = error.errorDescription
-        } catch {
-            errorMessage = "Failed to load doors"
-        }
-
-        isLoading = false
+        await doorsViewModel.loadDoors(credentials: credentials)
     }
 
     private func calculateDistance(to door: Door) -> CLLocationDistance? {
-        guard let currentLocation = locationService.currentLocation,
+        guard let currentLocation = locationManager.currentLocation,
               let position = door.asset.position2d else {
             return nil
         }
@@ -135,65 +124,5 @@ struct DoorsListView: View {
         )
 
         return currentLocation.distance(from: doorLocation)
-    }
-
-    private func handleUnlock(_ door: Door) {
-        guard let credentials = authViewModel.credentials, unlockingDoorId == nil else { return }
-
-        unlockingDoorId = door.id
-        errorMessage = nil
-
-        Task {
-            // Prepare haptic feedback generator
-            let generator = UINotificationFeedbackGenerator()
-            generator.prepare()
-
-            do {
-                try await doorsService.unlockDoor(door, credentials: credentials)
-
-                // Success haptic feedback
-                generator.notificationOccurred(.success)
-
-                // Show success feedback for 1.5s
-                try? await Task.sleep(nanoseconds: 1_500_000_000)
-            } catch let error as APIError {
-                errorMessage = error.errorDescription
-                generator.notificationOccurred(.error)
-            } catch {
-                errorMessage = "Failed to unlock \(door.name)"
-                generator.notificationOccurred(.error)
-            }
-
-            unlockingDoorId = nil
-        }
-    }
-
-    private func handleFavoriteToggle(_ door: Door) {
-        guard let credentials = authViewModel.credentials else { return }
-
-        Task {
-            let newFavoriteStatus = !door.favorite
-            do {
-                try await doorsService.toggleFavorite(
-                    doorId: door.id,
-                    isFavorite: newFavoriteStatus,
-                    credentials: credentials
-                )
-
-                // Update local state
-                if let index = doors.firstIndex(where: { $0.id == door.id }) {
-                    doors[index] = Door(
-                        publicationId: doors[index].publicationId,
-                        name: doors[index].name,
-                        asset: doors[index].asset,
-                        favorite: newFavoriteStatus
-                    )
-                }
-            } catch let error as APIError {
-                errorMessage = error.errorDescription
-            } catch {
-                errorMessage = "Failed to update favorite"
-            }
-        }
     }
 }

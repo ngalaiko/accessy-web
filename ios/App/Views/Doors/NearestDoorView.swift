@@ -3,16 +3,16 @@ import SwiftUI
 
 /// View that displays a button to open the nearest door
 struct NearestDoorView: View {
-    @EnvironmentObject var locationService: LocationService
-    @EnvironmentObject var nearestDoorService: NearestDoorService
+    @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject var nearestDoorManager: NearestDoorManager
     @EnvironmentObject var authViewModel: AuthViewModel
     @State private var isUnlocking = false
 
     var body: some View {
         VStack(spacing: 20) {
-            if nearestDoorService.isLoadingDoors && nearestDoorService.doors.isEmpty {
+            if nearestDoorManager.isLoadingDoors && nearestDoorManager.doors.isEmpty {
                 ProgressView()
-            } else if let nearest = nearestDoorService.nearestDoor {
+            } else if let nearest = nearestDoorManager.nearestDoor {
                 VStack(spacing: 16) {
                     // Door info
                     Text(nearest.name)
@@ -44,27 +44,27 @@ struct NearestDoorView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .alert("Error", isPresented: .constant(nearestDoorService.errorMessage != nil)) {
+        .alert("Error", isPresented: .constant(nearestDoorManager.errorMessage != nil)) {
             Button("OK") {
-                nearestDoorService.errorMessage = nil
+                nearestDoorManager.errorMessage = nil
             }
         } message: {
-            if let error = nearestDoorService.errorMessage {
+            if let error = nearestDoorManager.errorMessage {
                 Text(error)
             }
         }
         .task {
             await loadDoors()
         }
-        .onChange(of: locationService.currentLocation) { _, _ in
-            nearestDoorService.updateNearestDoor(currentLocation: locationService.currentLocation)
+        .onChange(of: locationManager.currentLocation) { _, _ in
+            nearestDoorManager.updateNearestDoor(currentLocation: locationManager.currentLocation)
         }
     }
 
     // MARK: - Subviews
 
     private var emptyStateView: some View {
-        let noLocation = locationService.currentLocation == nil
+        let noLocation = locationManager.currentLocation == nil
         let imageName = noLocation ? "location.slash" : "exclamationmark.triangle"
         let title = noLocation ? "Location unavailable" : "No nearby doors found"
         let subtitle = noLocation
@@ -91,8 +91,8 @@ struct NearestDoorView: View {
 
     private func loadDoors() async {
         guard let credentials = authViewModel.credentials else { return }
-        await nearestDoorService.loadDoors(credentials: credentials)
-        nearestDoorService.updateNearestDoor(currentLocation: locationService.currentLocation)
+        await nearestDoorManager.loadDoors(credentials: credentials)
+        nearestDoorManager.updateNearestDoor(currentLocation: locationManager.currentLocation)
     }
 
     private func formatDistance(_ distance: CLLocationDistance) -> String {
@@ -109,11 +109,11 @@ struct NearestDoorView: View {
 
         Task {
             do {
-                try await nearestDoorService.unlockNearestDoor(credentials: credentials)
+                try await nearestDoorManager.unlockNearestDoor(credentials: credentials)
                 // Success - maybe show a success indicator briefly
                 try? await Task.sleep(nanoseconds: 500_000_000)
             } catch {
-                nearestDoorService.errorMessage = error.localizedDescription
+                nearestDoorManager.errorMessage = error.localizedDescription
             }
             isUnlocking = false
         }

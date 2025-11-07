@@ -178,8 +178,8 @@ struct LoginView: View {
 }
 
 #Preview {
-    let keyStore = KeychainKeyStore()
-    let credentialsStore = CredentialsStore(keyStore: keyStore)
+    let keyStore = KeychainService()
+    let credentialsStore = CredentialsService(keyStore: keyStore)
     let apiClient = APIClient()
     let authService = AuthService(apiClient: apiClient, keyStore: keyStore)
     let authViewModel = AuthViewModel(authService: authService, credentialsStore: credentialsStore)

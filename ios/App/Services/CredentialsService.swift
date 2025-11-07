@@ -8,13 +8,13 @@ import Security
 /// - Persists across app reinstalls
 /// - Can be synced via iCloud Keychain (if enabled)
 /// - Separate from app sandbox (survives app deletion)
-class CredentialsStore {
+final class CredentialsService {
     private let service = "rocks.galaiko.cerve"
     private let credentialsKey = "credentials"
-    private let keyStore: KeychainKeyStore
+    private let keychainService: KeychainService
 
-    init(keyStore: KeychainKeyStore) {
-        self.keyStore = keyStore
+    init(keyStore: KeychainService) {
+        keychainService = keyStore
     }
 
     // MARK: - Keychain Operations
@@ -68,8 +68,8 @@ class CredentialsStore {
         // Load credentials to get key identifiers
         if let credentials = try? load() {
             // Delete associated keys
-            try? keyStore.deleteKey(identifier: credentials.loginKeyIdentifier)
-            try? keyStore.deleteKey(identifier: credentials.signingKeyIdentifier)
+            try? keychainService.deleteKey(identifier: credentials.loginKeyIdentifier)
+            try? keychainService.deleteKey(identifier: credentials.signingKeyIdentifier)
         }
 
         // Delete credentials

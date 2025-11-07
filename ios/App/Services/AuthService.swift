@@ -2,11 +2,11 @@ import Foundation
 import Security
 
 /// Service for authentication operations
-class AuthService {
+final class AuthService {
     private let apiClient: APIClient
-    private let keyStore: KeychainKeyStore
+    private let keyStore: KeychainService
 
-    init(apiClient: APIClient, keyStore: KeychainKeyStore) {
+    init(apiClient: APIClient, keyStore: KeychainService) {
         self.apiClient = apiClient
         self.keyStore = keyStore
     }

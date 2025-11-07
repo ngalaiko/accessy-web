@@ -2,9 +2,9 @@ import Combine
 import CoreLocation
 import Foundation
 
-/// Service for tracking device location
+/// Manager for tracking device location
 @MainActor
-class LocationService: NSObject, ObservableObject {
+class LocationManager: NSObject, ObservableObject {
     // MARK: - Published State
 
     @Published var currentLocation: CLLocation?
@@ -79,7 +79,7 @@ class LocationService: NSObject, ObservableObject {
 
 // MARK: - CLLocationManagerDelegate
 
-extension LocationService: CLLocationManagerDelegate {
+extension LocationManager: CLLocationManagerDelegate {
     nonisolated func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Task { @MainActor in
             if let location = locations.last {
