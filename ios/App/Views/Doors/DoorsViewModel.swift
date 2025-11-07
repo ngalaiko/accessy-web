@@ -79,6 +79,35 @@ class DoorsViewModel: ObservableObject {
         unlockingDoorId = nil
     }
 
+    /// Toggle favorite status for a door
+    func toggleFavorite(_ door: Door, credentials: Credentials) async {
+        errorMessage = nil
+
+        do {
+            let newFavoriteStatus = !door.favorite
+            try await doorsService.toggleFavorite(
+                doorId: door.id,
+                isFavorite: newFavoriteStatus,
+                credentials: credentials
+            )
+
+            // Update local state
+            if let index = doors.firstIndex(where: { $0.id == door.id }) {
+                let updatedDoor = doors[index]
+                doors[index] = Door(
+                    publicationId: updatedDoor.publicationId,
+                    name: updatedDoor.name,
+                    asset: updatedDoor.asset,
+                    favorite: newFavoriteStatus
+                )
+            }
+        } catch let error as APIError {
+            errorMessage = error.errorDescription
+        } catch {
+            errorMessage = "Failed to update favorite"
+        }
+    }
+
     // MARK: - Constants
 
     private enum Constants {

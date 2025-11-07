@@ -184,6 +184,39 @@ class APIClient {
         try validateStatusCode(httpResponse.statusCode)
     }
 
+    func setFavorite(publicationId: String, isFavorite: Bool, authToken: String) async throws {
+        try await checkNetworkConnection()
+
+        let endpoint = "/asset/my-asset-publication/\(publicationId)/favorite"
+
+        var headers = defaultHeaders
+        headers["authorization"] = "Bearer \(authToken)"
+
+        guard let url = URL(string: baseURL + endpoint) else {
+            throw APIError.invalidURL
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = isFavorite ? "PUT" : "DELETE"
+
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+
+        let (_, response): (Data, URLResponse)
+        do {
+            (_, response) = try await session.data(for: request)
+        } catch {
+            throw APIError.networkError
+        }
+
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.invalidResponse
+        }
+
+        try validateStatusCode(httpResponse.statusCode)
+    }
+
     // MARK: - Private Helpers
 
     private func get<T: Decodable>(endpoint: String, headers: [String: String]) async throws -> T {

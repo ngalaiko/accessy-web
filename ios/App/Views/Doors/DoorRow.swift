@@ -6,18 +6,27 @@ struct DoorRow: View {
     let isUnlocking: Bool
     let distance: CLLocationDistance?
     let onTap: () -> Void
+    let onFavoriteTap: () -> Void
 
     var body: some View {
-        Button(action: onTap) {
-            HStack {
-                Text(door.name)
-                Spacer()
-                if isUnlocking {
-                    ProgressView()
+        HStack {
+            Button(action: onTap) {
+                HStack {
+                    Text(door.name)
+                    Spacer()
+                    if isUnlocking {
+                        ProgressView()
+                    }
                 }
             }
+            .disabled(isUnlocking || door.operations.isEmpty)
+
+            Button(action: onFavoriteTap) {
+                Image(systemName: door.favorite ? "star.fill" : "star")
+                    .foregroundColor(door.favorite ? .yellow : .gray)
+            }
+            .buttonStyle(.borderless)
         }
-        .disabled(isUnlocking || door.operations.isEmpty)
     }
 
     private func formatDistance(_ distance: CLLocationDistance) -> String {

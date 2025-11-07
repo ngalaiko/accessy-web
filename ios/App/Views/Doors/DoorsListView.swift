@@ -80,7 +80,8 @@ struct DoorsListView: View {
                         door: door,
                         isUnlocking: unlockingDoorId == door.id,
                         distance: calculateDistance(to: door),
-                        onTap: { handleUnlock(door) }
+                        onTap: { handleUnlock(door) },
+                        onFavoriteTap: { handleFavoriteToggle(door) }
                     )
                 }
             }
@@ -164,6 +165,35 @@ struct DoorsListView: View {
             }
 
             unlockingDoorId = nil
+        }
+    }
+
+    private func handleFavoriteToggle(_ door: Door) {
+        guard let credentials = authViewModel.credentials else { return }
+
+        Task {
+            let newFavoriteStatus = !door.favorite
+            do {
+                try await doorsService.toggleFavorite(
+                    doorId: door.id,
+                    isFavorite: newFavoriteStatus,
+                    credentials: credentials
+                )
+
+                // Update local state
+                if let index = doors.firstIndex(where: { $0.id == door.id }) {
+                    doors[index] = Door(
+                        publicationId: doors[index].publicationId,
+                        name: doors[index].name,
+                        asset: doors[index].asset,
+                        favorite: newFavoriteStatus
+                    )
+                }
+            } catch let error as APIError {
+                errorMessage = error.errorDescription
+            } catch {
+                errorMessage = "Failed to update favorite"
+            }
         }
     }
 }

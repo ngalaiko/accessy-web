@@ -142,6 +142,16 @@ class DoorsService {
 
         return (nearest, distance)
     }
+
+    /// Toggle favorite status for a door
+    func toggleFavorite(doorId: String, isFavorite: Bool, credentials: Credentials) async throws {
+        // Demo mode: do nothing
+        if credentials.isDemoMode {
+            return
+        }
+
+        try await apiClient.setFavorite(publicationId: doorId, isFavorite: isFavorite, authToken: credentials.authToken)
+    }
 }
 
 // MARK: - Errors
