@@ -3,16 +3,16 @@ import Foundation
 
 /// Location overrides for specific doors
 private let doorLocationOverrides: [String: CLLocationCoordinate2D] = [
-    "F9114E43-B180-470F-B953-2D90FB67AA72": CLLocationCoordinate2D(
+    "f9114e43-b180-470f-b953-2d90fb67aa72": CLLocationCoordinate2D(
         latitude: 57.711941,
         longitude: 11.945427
     ), // P.O nr 21
-    "B450D23A-451A-49B8-9D9A-07F7BB3EC36C": CLLocationCoordinate2D(
+    "b450d23a-451a-49b8-9d9a-07f7bb3ec36c": CLLocationCoordinate2D(
         latitude: 57.711437,
         longitude: 11.946004
     ),
     // United Spaces Theatre Plan 2
-    "F96EBB6D-B9EC-422F-905F-8A3B9575EA30": CLLocationCoordinate2D(
+    "f96ebb6d-b9ec-422f-905f-8a3b9575ea30": CLLocationCoordinate2D(
         latitude: 57.711603,
         longitude: 11.946576
     ) // United Spaces reception Plan 2
